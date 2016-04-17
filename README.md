@@ -28,7 +28,14 @@
     
 ## API ##
 * Po spuštění serveru by standardně na adrese localhost:8080 měly běžet resourcy
- * /api/v1/persons/all
- * /api/v1/person/{personId}
-
+ * /api/v1/persons/all - GET
+ * /api/v1/person/{personId} - GET
+ * /api/v1/persons/create - POST (nutná hlavička Content-Type: application/json); např:
+  ```
+    {
+    "email": "aaa@bb.cz",
+    "name": "Tomas",
+    "surname": "Fuk"
+    }
+  ```
   
