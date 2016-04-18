@@ -16,4 +16,8 @@ public class HibernatePersonDao extends AbstractGenericHibernateDao<Person> {
         super(Person.class);
     }
 
+    public Person findPersonByToken(String token) {
+        return (Person) sessionFactory.getCurrentSession().getNamedQuery("Person.findPersonByToken").setParameter("token", token).uniqueResult();
+    }
+
 }

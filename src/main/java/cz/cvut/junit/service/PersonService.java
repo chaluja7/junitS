@@ -13,6 +13,8 @@ public interface PersonService {
 
     Person findPerson(long id);
 
+    Person findPersonByToken(String token);
+
     void persistPerson(Person person);
 
     void mergePerson(Person person);

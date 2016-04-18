@@ -1,5 +1,7 @@
 package cz.cvut.junit.web.interceptor;
 
+import cz.cvut.junit.entity.Person;
+import cz.cvut.junit.entity.Role;
 import cz.cvut.junit.service.PersonService;
 import cz.cvut.junit.web.controller.exception.UnauthorizedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,23 +46,16 @@ public class SecurityInterceptor implements HandlerInterceptor {
             }
 
             //pole roli, ktere jsou nutne pro tento resource
-            String[] rolesNeeded = methodAnnotation.value();
+            Role.Type[] rolesNeeded = methodAnnotation.value();
 
-            //TODO z DB zjistit dle TOKENU, co je to za uzivatele a jake ma role - to bude muset byt v nove tabulce (USER_ROLES)
-            //TODO nasledne staci zjistit, jestli ma alespon jednu roli z tech, co jsou v rolesNeeded
-            //TODO tedy neco jako
-//            Person person = personService.findPersonByToken(securityHeader);
-//            for (String roleNeeded : rolesNeeded) {
-//                if(person.getRoles().contains(roleNeeded)) {
-//                    return true;
-//                }
-//            }
+            Person person = personService.findPersonByToken(securityHeader);
+            for (Role.Type roleNeeded : rolesNeeded) {
+                if (person.hasRole(roleNeeded)) {
+                    return true;
+                }
+            }
 
-            //TODO smazat
-            return true;
-
-            //TODO odkomentovat
-            //throw new UnauthorizedException();
+            throw new UnauthorizedException();
         }
 
         throw new UnauthorizedException();

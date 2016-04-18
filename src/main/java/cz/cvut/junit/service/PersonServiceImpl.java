@@ -26,6 +26,12 @@ public class PersonServiceImpl implements PersonService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public Person findPersonByToken(String token) {
+        return hibernatePersonDao.findPersonByToken(token);
+    }
+
+    @Override
     @Transactional
     public void persistPerson(Person person) {
         hibernatePersonDao.persist(person);

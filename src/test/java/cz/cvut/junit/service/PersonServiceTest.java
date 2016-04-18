@@ -25,9 +25,10 @@ public class PersonServiceTest extends AbstractServiceTest {
         final String email = "aaa@bb.cz";
         final String name = "jmeno";
         final String surname = "prijmeni";
+        final String token = "asdf";
         Set<Role> roles = new HashSet<>(Arrays.asList(new Role(Role.Type.ADMIN),new Role(Role.Type.USER)));
 
-        Person person = getPerson(email, name, surname,roles);
+        Person person = getPerson(email, name, surname,roles,token);
         personService.persistPerson(person);
 
         Person retrievedPerson = personService.findPerson(person.getId());
@@ -43,10 +44,10 @@ public class PersonServiceTest extends AbstractServiceTest {
 
         final String newName = "jmeno2";
         retrievedPerson.setName(newName);
-        System.out.println(retrievedPerson.getRoles().remove(new Role(Role.Type.ADMIN)));
+        retrievedPerson.getRoles().remove(new Role(Role.Type.ADMIN));
 
         personService.mergePerson(retrievedPerson);
-        retrievedPerson = personService.findPerson(person.getId());
+        retrievedPerson = personService.findPersonByToken(token);
         Assert.assertNotNull(retrievedPerson);
         Assert.assertEquals(newName, retrievedPerson.getName());
         Assert.assertEquals(1,retrievedPerson.getRoles().size());
@@ -56,12 +57,13 @@ public class PersonServiceTest extends AbstractServiceTest {
         Assert.assertNull(personService.findPerson(person.getId()));
     }
 
-    public static Person getPerson(String email, String name, String surname, Set<Role> roles) {
+    public static Person getPerson(String email, String name, String surname, Set<Role> roles, String token) {
         Person person = new Person();
         person.setEmail(email);
         person.setName(name);
         person.setSurname(surname);
         person.setRoles(roles);
+        person.setToken(token);
         return person;
     }
 

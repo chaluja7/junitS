@@ -1,6 +1,7 @@
 package cz.cvut.junit.web.controller;
 
 import cz.cvut.junit.entity.Person;
+import cz.cvut.junit.entity.Role;
 import cz.cvut.junit.service.PersonService;
 import cz.cvut.junit.web.controller.exception.BadRequestException;
 import cz.cvut.junit.web.controller.exception.ResourceNotFoundException;
@@ -25,7 +26,7 @@ public class PersonController {
     @Autowired
     protected PersonService personService;
 
-    @CheckAccess({"ADMIN_ROLE", "USER_ROLE"})
+    @CheckAccess({Role.Type.ADMIN, Role.Type.USER})
     @RequestMapping(value = "/persons/all", method = RequestMethod.GET)
     public List<PersonWrapper> getPersons() {
         List<PersonWrapper> personWrappers = new ArrayList<>();
@@ -36,6 +37,7 @@ public class PersonController {
         return personWrappers;
     }
 
+    @CheckAccess({Role.Type.ADMIN})
     @RequestMapping(value = "/persons/{personId}", method = RequestMethod.GET)
     public PersonWrapper getPerson(@PathVariable Long personId) {
         PersonWrapper personWrapper = getPersonWrapperFromPerson(personService.findPerson(personId));

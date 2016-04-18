@@ -1,5 +1,7 @@
 package cz.cvut.junit.web.interceptor;
 
+import cz.cvut.junit.entity.Role;
+
 import java.lang.annotation.*;
 
 /**
@@ -17,6 +19,6 @@ public @interface CheckAccess {
     /**
      * nutne role pro pristup
      */
-    String[] value() default {};
+    Role.Type[] value() default {};
 
 }

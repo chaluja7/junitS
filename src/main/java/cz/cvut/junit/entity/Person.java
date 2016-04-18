@@ -9,8 +9,11 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Size;
 import java.util.HashSet;
 import java.util.Set;
@@ -20,7 +23,11 @@ import java.util.Set;
  * @since 17.03.16
  */
 @Entity
-@Table(name = "persons")
+@Table(name = "persons", uniqueConstraints = @UniqueConstraint(columnNames = {"token"}))
+@NamedQueries({
+        @NamedQuery(name = "Person.findPersonByToken",
+                query = "FROM Person p WHERE p.token = :token")
+})
 public class Person extends AbstractEntity {
 
     private static final long serialVersionUID = -6719668226224017418L;
@@ -36,6 +43,18 @@ public class Person extends AbstractEntity {
     @Column(nullable = false)
     @Size(max = 255)
     private String surname;
+
+    @Column(nullable = false)
+    @Size(max = 255)
+    private String token;
+
+    public String getToken() {
+        return token;
+    }
+
+    public void setToken(String token) {
+        this.token = token;
+    }
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(name = "person_role", joinColumns = @JoinColumn(name = "person_id", nullable = false, updatable = false),
@@ -72,5 +91,9 @@ public class Person extends AbstractEntity {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public boolean hasRole(Role.Type roleNeeded) {
+        return roles.contains(new Role(roleNeeded));
     }
 }
