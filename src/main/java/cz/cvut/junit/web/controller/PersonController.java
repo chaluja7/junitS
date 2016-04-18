@@ -4,6 +4,7 @@ import cz.cvut.junit.entity.Person;
 import cz.cvut.junit.service.PersonService;
 import cz.cvut.junit.web.controller.exception.BadRequestException;
 import cz.cvut.junit.web.controller.exception.ResourceNotFoundException;
+import cz.cvut.junit.web.interceptor.CheckAccess;
 import cz.cvut.junit.web.wrapper.PersonWrapper;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +25,7 @@ public class PersonController {
     @Autowired
     protected PersonService personService;
 
+    @CheckAccess({"ADMIN_ROLE", "USER_ROLE"})
     @RequestMapping(value = "/persons/all", method = RequestMethod.GET)
     public List<PersonWrapper> getPersons() {
         List<PersonWrapper> personWrappers = new ArrayList<>();
