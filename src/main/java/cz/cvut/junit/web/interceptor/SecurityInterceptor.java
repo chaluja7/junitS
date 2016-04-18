@@ -41,7 +41,7 @@ public class SecurityInterceptor implements HandlerInterceptor {
             }
 
             String securityHeader = httpServletRequest.getHeader(SECURITY_HEADER);
-            if (securityHeader == null || securityHeader.length() == 0) {
+            if(securityHeader == null || securityHeader.length() == 0) {
                 throw new UnauthorizedException();
             }
 
@@ -49,9 +49,11 @@ public class SecurityInterceptor implements HandlerInterceptor {
             Role.Type[] rolesNeeded = methodAnnotation.value();
 
             Person person = personService.findPersonByToken(securityHeader);
-            for (Role.Type roleNeeded : rolesNeeded) {
-                if (person.hasRole(roleNeeded)) {
-                    return true;
+            if(person != null) {
+                for(Role.Type roleNeeded : rolesNeeded) {
+                    if(person.hasRole(roleNeeded)) {
+                        return true;
+                    }
                 }
             }
 

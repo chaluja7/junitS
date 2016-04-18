@@ -19,6 +19,6 @@ public @interface CheckAccess {
     /**
      * nutne role pro pristup
      */
-    Role.Type[] value() default {};
+    Role.Type[] value() default {Role.Type.USER};
 
 }

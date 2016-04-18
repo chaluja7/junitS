@@ -32,7 +32,7 @@ public class Person extends AbstractEntity {
     @Size(max = 255)
     private String surname;
 
-    @Column(nullable = false, unique = true)
+    @Column(unique = true)
     @Size(max = 255)
     private String token;
 

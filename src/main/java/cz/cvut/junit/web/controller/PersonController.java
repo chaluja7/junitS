@@ -9,7 +9,6 @@ import cz.cvut.junit.web.interceptor.CheckAccess;
 import cz.cvut.junit.web.wrapper.PersonWrapper;
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,12 +20,11 @@ import java.util.List;
  * @since 20.03.16
  */
 @RestController
-public class PersonController {
+public class PersonController extends AbstractController {
 
     @Autowired
     protected PersonService personService;
 
-    @CheckAccess({Role.Type.ADMIN, Role.Type.USER})
     @RequestMapping(value = "/persons/all", method = RequestMethod.GET)
     public List<PersonWrapper> getPersons() {
         List<PersonWrapper> personWrappers = new ArrayList<>();
@@ -37,7 +35,6 @@ public class PersonController {
         return personWrappers;
     }
 
-    @CheckAccess({Role.Type.ADMIN})
     @RequestMapping(value = "/persons/{personId}", method = RequestMethod.GET)
     public PersonWrapper getPerson(@PathVariable Long personId) {
         PersonWrapper personWrapper = getPersonWrapperFromPerson(personService.findPerson(personId));
@@ -48,19 +45,21 @@ public class PersonController {
         return personWrapper;
     }
 
+    @CheckAccess({Role.Type.ADMIN})
     @RequestMapping(value = "/persons/create", method = RequestMethod.POST)
     public ResponseEntity<String> doCreateOrder(@RequestBody PersonWrapper personWrapper) {
         if(personWrapper == null) {
             throw new BadRequestException();
         }
 
+        Person person = getPersonFromPersonWrapper(personWrapper);
         try {
-            personService.persistPerson(getPersonFromPersonWrapper(personWrapper));
+            personService.persistPerson(person);
         } catch (ConstraintViolationException e) {
             throw new BadRequestException();
         }
 
-        return new ResponseEntity<>(HttpStatus.CREATED);
+        return getResponseCreated("/persons/" + person.getId());
     }
 
     private PersonWrapper getPersonWrapperFromPerson(Person person) {
