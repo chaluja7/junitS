@@ -2,6 +2,7 @@ package cz.cvut.junit.service;
 
 import cz.cvut.junit.dao.HibernatePersonDao;
 import cz.cvut.junit.entity.Person;
+import cz.cvut.junit.security.HashUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -28,12 +29,17 @@ public class PersonServiceImpl implements PersonService {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Person findPersonByToken(String token) {
-        return hibernatePersonDao.findPersonByToken(token);
+        // TODO hashovat token
+        String tokenHashed = HashUtils.getHash(token, HashUtils.SHA);
+        return hibernatePersonDao.findPersonByToken(tokenHashed);
     }
 
     @Override
     @Transactional
     public void persistPerson(Person person) {
+        // TODO hashovat token
+        String tokenHashed = HashUtils.getHash(person.getToken(), HashUtils.SHA);
+        person.setToken(tokenHashed);
         hibernatePersonDao.persist(person);
     }
 

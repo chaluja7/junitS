@@ -2,6 +2,7 @@ package cz.cvut.junit.web.interceptor;
 
 import cz.cvut.junit.entity.Person;
 import cz.cvut.junit.entity.Role;
+import cz.cvut.junit.security.HashUtils;
 import cz.cvut.junit.service.PersonService;
 import cz.cvut.junit.web.controller.exception.UnauthorizedException;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,7 +49,9 @@ public class SecurityInterceptor implements HandlerInterceptor {
             //pole roli, ktere jsou nutne pro tento resource
             Role.Type[] rolesNeeded = methodAnnotation.value();
 
-            Person person = personService.findPersonByToken(securityHeader);
+            // TODO hashovat token
+            String securityHeaderHashed = HashUtils.getHash(securityHeader, HashUtils.SHA);
+            Person person = personService.findPersonByToken(securityHeaderHashed);
             for (Role.Type roleNeeded : rolesNeeded) {
                 if (person.hasRole(roleNeeded)) {
                     return true;
