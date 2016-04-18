@@ -1,18 +1,7 @@
 package cz.cvut.junit.entity;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Embeddable;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.FetchType;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
-import javax.validation.constraints.Size;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Set;
 
 /**
@@ -20,25 +9,25 @@ import java.util.Set;
  * @since 17.03.16
  */
 @Entity
-@Table(name = "roles", uniqueConstraints = @UniqueConstraint(columnNames = {"type"}))
-public class Role extends AbstractEntity {
+@Table(name = "roles")
+public class Role implements Serializable {
+
+    private static final long serialVersionUID = -3457743788806834700L;
 
     public Role() {
-
+        //empty
     }
 
     public Role(Type type) {
         this.type = type;
     }
 
-    public enum Type {
-        ADMIN, USER
-    }
-
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles", cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
     private Set<Person> persons;
 
-    @Column(nullable = false)
+
+    @Id
+    @Column
     @Enumerated(EnumType.STRING)
     private Type type;
 
@@ -60,12 +49,15 @@ public class Role extends AbstractEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Role)) return false;
+        if(getType() == null || o == null) {
+            return false;
+        }
 
-        Role role = (Role) o;
-        return type == role.type;
+        if(!(o instanceof Role)) {
+            return false;
+        }
 
+        return getType().equals(((Role) o).type);
     }
 
     @Override
@@ -79,4 +71,10 @@ public class Role extends AbstractEntity {
                 "type=" + type +
                 '}';
     }
+
+    public enum Type {
+        ADMIN,
+        USER
+    }
+
 }

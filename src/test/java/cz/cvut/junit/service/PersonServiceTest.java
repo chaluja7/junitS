@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.Set;
 
 /**
@@ -28,7 +27,7 @@ public class PersonServiceTest extends AbstractServiceTest {
         final String token = "asdf";
         Set<Role> roles = new HashSet<>(Arrays.asList(new Role(Role.Type.ADMIN),new Role(Role.Type.USER)));
 
-        Person person = getPerson(email, name, surname,roles,token);
+        Person person = getPerson(email, name, surname, roles, token);
         personService.persistPerson(person);
 
         Person retrievedPerson = personService.findPerson(person.getId());
@@ -36,11 +35,10 @@ public class PersonServiceTest extends AbstractServiceTest {
         Assert.assertEquals(email, retrievedPerson.getEmail());
         Assert.assertEquals(name, retrievedPerson.getName());
         Assert.assertEquals(surname, retrievedPerson.getSurname());
-        Iterator<Role> roleIterator = retrievedPerson.getRoles().iterator();
-        while (roleIterator.hasNext()) {
-            Assert.assertEquals(true,roles.contains(roleIterator.next()));
+        for(Role role : retrievedPerson.getRoles()) {
+            Assert.assertEquals(true, roles.contains(role));
         }
-        Assert.assertEquals(roles.size(),retrievedPerson.getRoles().size());
+        Assert.assertEquals(roles.size(), retrievedPerson.getRoles().size());
 
         final String newName = "jmeno2";
         retrievedPerson.setName(newName);
@@ -50,8 +48,17 @@ public class PersonServiceTest extends AbstractServiceTest {
         retrievedPerson = personService.findPersonByToken(token);
         Assert.assertNotNull(retrievedPerson);
         Assert.assertEquals(newName, retrievedPerson.getName());
-        Assert.assertEquals(1,retrievedPerson.getRoles().size());
-        Assert.assertEquals(true,retrievedPerson.getRoles().contains(new Role(Role.Type.USER)));
+        Assert.assertEquals(1, retrievedPerson.getRoles().size());
+        Assert.assertTrue(retrievedPerson.getRoles().contains(new Role(Role.Type.USER)));
+        Assert.assertFalse(retrievedPerson.getRoles().contains(new Role(Role.Type.ADMIN)));
+
+        retrievedPerson.getRoles().add(new Role(Role.Type.ADMIN));
+        personService.mergePerson(retrievedPerson);
+
+        retrievedPerson = personService.findPersonByToken(token);
+        Assert.assertNotNull(retrievedPerson);
+        Assert.assertTrue(retrievedPerson.getRoles().contains(new Role(Role.Type.USER)));
+        Assert.assertTrue(retrievedPerson.getRoles().contains(new Role(Role.Type.ADMIN)));
 
         personService.deletePerson(person.getId());
         Assert.assertNull(personService.findPerson(person.getId()));
