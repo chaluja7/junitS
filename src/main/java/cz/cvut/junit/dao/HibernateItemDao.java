@@ -2,6 +2,8 @@ package cz.cvut.junit.dao;
 
 import cz.cvut.junit.dao.generics.AbstractGenericHibernateDao;
 import cz.cvut.junit.entity.Item;
+import cz.cvut.junit.web.wrapper.output.ItemPlace;
+import cz.cvut.junit.web.wrapper.output.ItemPlaceWithExpiration;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
@@ -38,5 +40,13 @@ public class HibernateItemDao extends AbstractGenericHibernateDao<Item> {
                 "JOIN shelfs.boxid = boxes.id ON boxes " +
                 "WHERE itemshelfs.itemid IN (:ids)";
         return sessionFactory.getCurrentSession().createSQLQuery(sql).setParameterList("ids", itemIds).list();
+    }
+
+    public List<ItemPlaceWithExpiration> getItemsByTypes(String meatType, String coolingType) {
+        String sql = "SELECT itemshelfs.count, shelfs.shelfnumber,boxes.boxnumber, items.expirationdate FROM itemshelfs JOIN items ON items.id = itemshelfs.itemid \n" +
+                "JOIN shelfs ON itemshelfs.shelfid = shelfs.id \n" +
+                "JOIN boxes ON shelfs.boxid = boxes.id";
+        return sessionFactory.getCurrentSession().createSQLQuery(sql).list();
+
     }
 }

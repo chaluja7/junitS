@@ -2,6 +2,7 @@ package cz.cvut.junit.service;
 
 import cz.cvut.junit.dao.HibernateItemDao;
 import cz.cvut.junit.entity.Item;
+import cz.cvut.junit.web.wrapper.output.ItemPlaceWithExpiration;
 import org.joda.time.DateTime;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,6 +57,13 @@ public class ItemServiceImpl implements ItemService {
     @Transactional
     public List getItemsPlaces(List<Item> items){
         return hibernateItemDao.getItemsPlaces(items);
+
+    }
+
+    @Override
+    @Transactional
+    public List<ItemPlaceWithExpiration> getItemsByType(String meatType, String coolingType) {
+        return hibernateItemDao.getItemsByTypes(meatType, coolingType);
 
     }
 
