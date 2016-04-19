@@ -7,7 +7,6 @@ import cz.cvut.junit.entity.ItemShelfConnection;
 import cz.cvut.junit.entity.Shelf;
 import cz.cvut.junit.pojo.ReportItem;
 import cz.cvut.junit.util.Util;
-import cz.cvut.junit.web.controller.exception.UnimplementedException;
 import cz.cvut.junit.web.wrapper.input.ItemPlacesRequest;
 import cz.cvut.junit.web.wrapper.input.StoreItemRequest;
 import cz.cvut.junit.web.wrapper.input.UnstoreItemRequest;
@@ -15,6 +14,7 @@ import cz.cvut.junit.web.wrapper.output.ItemPlace;
 import cz.cvut.junit.web.wrapper.output.ItemPlaceWithExpiration;
 import cz.cvut.junit.web.wrapper.output.ItemPlacesResponse;
 import cz.cvut.junit.web.wrapper.output.UnstoreItemResponse;
+import org.hibernate.cfg.NotYetImplementedException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -141,7 +141,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Transactional
     public String preparationShipmentOfMeat(String inputJson) {
         // TODO
-        throw new UnimplementedException("unimplemented");
+        throw new NotYetImplementedException("unimplemented");
     }
 
     private ItemPlace getItemPlaceFromShelf(Shelf shelf, int count) {
@@ -216,7 +216,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Override
     @Transactional
     public String receivingShipments(String inputJson) {
-        throw new UnimplementedException("unimplemented");
+        throw new NotYetImplementedException("unimplemented");
     }
 
     @Override
@@ -265,7 +265,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Transactional
     public void moveItem(String inputJson) {
         // TODO
-        throw new UnimplementedException("unimplemented");
+        throw new NotYetImplementedException("unimplemented");
     }
 
     //nepovinne
@@ -273,6 +273,6 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Transactional
     public void emptyCoolingBoxForCleaning(String inputJson) {
         // TODO
-        throw new UnimplementedException("unimplemented");
+        throw new NotYetImplementedException("unimplemented");
     }
 }
