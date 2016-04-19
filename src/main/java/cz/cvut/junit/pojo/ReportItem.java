@@ -1,9 +1,13 @@
 package cz.cvut.junit.pojo;
 
+import java.nio.charset.Charset;
+
 /**
  * Created by sange on 19/04/16.
  */
 public class ReportItem {
+
+    public static final String COMMA = ",";
     private String type;
     private int count;
     private boolean isFrozen;
@@ -49,5 +53,10 @@ public class ReportItem {
 
     public void setExpiresInDays(int expiresInDays) {
         this.expiresInDays = expiresInDays;
+    }
+
+    @Override
+    public String toString() {
+        return  type + COMMA + count + COMMA + isFrozen + COMMA + expiresInDays;
     }
 }

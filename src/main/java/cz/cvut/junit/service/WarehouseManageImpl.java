@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import cz.cvut.junit.entity.Item;
 import cz.cvut.junit.entity.Shelf;
 import cz.cvut.junit.entity.Item;
+import cz.cvut.junit.pojo.ReportItem;
 import cz.cvut.junit.util.Util;
 import cz.cvut.junit.web.wrapper.input.ItemPlacesRequest;
 import cz.cvut.junit.web.wrapper.output.ItemPlace;
@@ -18,6 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.List;
 
 /**
  * Created by dacos on 19.4.16.
@@ -30,6 +32,9 @@ public class WarehouseManageImpl implements WarehouseManageService {
 
     @Autowired
     protected ShelfService shelfService;
+
+    @Autowired
+    protected ReportService reportService;
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
@@ -102,7 +107,16 @@ public class WarehouseManageImpl implements WarehouseManageService {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public byte[] generateReportOnCurrentState() {
-        return new byte[0];
+        List<ReportItem> reportItems = reportService.findAll();
+
+        StringBuilder sb = new StringBuilder();
+        for (ReportItem reportItem : reportItems) {
+
+            sb.append(reportItem.toString());
+            sb.append(System.lineSeparator());
+        }
+
+        return sb.toString().getBytes();
     }
 
     //nepovinne
