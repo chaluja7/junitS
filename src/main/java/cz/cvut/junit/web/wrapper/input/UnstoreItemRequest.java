@@ -21,4 +21,35 @@ public class UnstoreItemRequest {
     @JsonProperty("days-durability")
     private int daysDurability;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCoolingType() {
+        return coolingType;
+    }
+
+    public void setCoolingType(String coolingType) {
+        this.coolingType = coolingType;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public int getDaysDurability() {
+        return daysDurability;
+    }
+
+    public void setDaysDurability(int daysDurability) {
+        this.daysDurability = daysDurability;
+    }
 }

@@ -21,4 +21,35 @@ public class StoreItemRequest {
     @JsonProperty("is-frozen")
     private boolean isFrozen;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public int getCount() {
+        return count;
+    }
+
+    public void setCount(int count) {
+        this.count = count;
+    }
+
+    public String getDateOfSlaughter() {
+        return dateOfSlaughter;
+    }
+
+    public void setDateOfSlaughter(String dateOfSlaughter) {
+        this.dateOfSlaughter = dateOfSlaughter;
+    }
+
+    public boolean isFrozen() {
+        return isFrozen;
+    }
+
+    public void setFrozen(boolean frozen) {
+        isFrozen = frozen;
+    }
 }
