@@ -1,6 +1,7 @@
 package cz.cvut.junit.service;
 
 
+import cz.cvut.junit.entity.CoolingType;
 import cz.cvut.junit.entity.ItemShelfConnection;
 
 import java.util.List;
@@ -24,5 +25,7 @@ public interface ItemShelfConnectionService {
     void delete(long id);
 
     List<ItemShelfConnection> findAll();
+
+    List<ItemShelfConnection> getConnectionsToUnload(String itemType, int count, CoolingType coolingType, Integer daysDurability);
 
 }

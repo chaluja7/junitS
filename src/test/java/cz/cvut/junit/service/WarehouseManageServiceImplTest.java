@@ -23,7 +23,7 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 
         String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store1.json").getFile()));
         warehouseManageService.putItemInStock(s);
-        s = warehouseManageService.getLocationOfItemInWarehouse("{ \"type\" : \"PORK\", \"cooling-type\" : \"FREEZING\" }");
+        s = warehouseManageService.getLocationOfItemInWarehouse("{ \"type\" : \"PORK\", \"cooling-type\" : \"COOLING\" }");
         System.out.println(s);
 
 
@@ -31,7 +31,15 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 
     @Test
     public void testGetPickingItemFromWarehouseByMeatType() throws Exception {
+        String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store1.json").getFile()));
+        String s1 = warehouseManageService.putItemInStock(s);
 
+        s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store2.json").getFile()));
+        s1 = warehouseManageService.putItemInStock(s);
+
+        s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/unstore1.json").getFile()));
+        String s2 = warehouseManageService.getPickingItemFromWarehouseByMeatType(s);
+        int i = 0;
     }
 
     @Test
@@ -65,6 +73,9 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 
     @Test
     public void testEjectionItems() throws Exception {
+        warehouseManageService.putItemInStock("{ \"type\" : \"PORK\", \"count\" : 84, \"date-of-slaughter\" : \"25.02.2015\", \"is-frozen\" : false }");
+        String ss = warehouseManageService.ejectionItems();
+        System.out.println(ss);
 
     }
 

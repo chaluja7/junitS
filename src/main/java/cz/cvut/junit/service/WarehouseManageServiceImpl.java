@@ -1,5 +1,6 @@
 package cz.cvut.junit.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import cz.cvut.junit.entity.CoolingType;
 import cz.cvut.junit.entity.Item;
 import cz.cvut.junit.entity.ItemShelfConnection;
@@ -13,6 +14,7 @@ import cz.cvut.junit.web.wrapper.input.UnstoreItemRequest;
 import cz.cvut.junit.web.wrapper.output.ItemPlace;
 import cz.cvut.junit.web.wrapper.output.ItemPlaceWithExpiration;
 import cz.cvut.junit.web.wrapper.output.ItemPlacesResponse;
+import cz.cvut.junit.web.wrapper.output.UnstoreItemResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -47,9 +49,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     public String getLocationOfItemInWarehouse(String inputJson) {
         try {
             ItemPlacesRequest itemPlaceRequest = (ItemPlacesRequest) Util.createObjectFromJson(inputJson, ItemPlacesRequest.class);
-            itemPlaceRequest.getCoolingType();
-            itemPlaceRequest.getType();
-            List<Object[]> list = itemService.getItemsByType(null,null);
+            List<Object[]> list = itemService.getItemsByType(itemPlaceRequest.getType(),itemPlaceRequest.getCoolingType());
             List<ItemPlaceWithExpiration> itemPlaceWithExpirationList = new ArrayList<>();
             for(Object[] o:list){
                 ItemPlaceWithExpiration itemPlaceWithExpiration = new ItemPlaceWithExpiration();
@@ -75,16 +75,65 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     public String getPickingItemFromWarehouseByMeatType(String inputJson) {
         try {
             UnstoreItemRequest unstoreItemRequest = (UnstoreItemRequest) Util.createObjectFromJson(inputJson, UnstoreItemRequest.class);
+            unstoreItemRequest.getType();
+            unstoreItemRequest.getCoolingType();
+            int needCount = unstoreItemRequest.getCount();
+            unstoreItemRequest.getDaysDurability();
 
+            CoolingType coolingType = CoolingType.fromString(unstoreItemRequest.getCoolingType());
+            if(coolingType == null) throw new RuntimeException("unknown cooling type");
+
+            List<ItemShelfConnection> connectionsToUnload = itemShelfConnectionService.getConnectionsToUnload(unstoreItemRequest.getType(), needCount, coolingType, unstoreItemRequest.getDaysDurability());
+
+            if(connectionsToUnload == null) {
+                throw new RuntimeException("not enought items");
+            }
+
+            UnstoreItemResponse unstoreItemResponse = new UnstoreItemResponse();
+            List<ItemPlaceWithExpiration> itemPlaceWithExpirations = new ArrayList<>();
+            unstoreItemResponse.setItemPlace(itemPlaceWithExpirations);
+
+            int alreadyCount = 0;
+            for(ItemShelfConnection itemShelfConnection : connectionsToUnload) {
+                int restCount = needCount - alreadyCount;
+
+                if(itemShelfConnection.getCount() == restCount) {
+                    //smazu item
+                    itemPlaceWithExpirations.add(getItemPlaceWithExpiration(itemShelfConnection, itemShelfConnection.getCount()));
+                    itemShelfConnectionService.delete(itemShelfConnection.getId());
+                    break;
+                } else if(itemShelfConnection.getCount() > restCount) {
+                    //uberu polozky
+                    itemPlaceWithExpirations.add(getItemPlaceWithExpiration(itemShelfConnection, restCount));
+                    itemShelfConnection.setCount(itemShelfConnection.getCount() - restCount);
+                    itemShelfConnectionService.merge(itemShelfConnection);
+                    break;
+                } else if(itemShelfConnection.getCount() < restCount) {
+                    itemPlaceWithExpirations.add(getItemPlaceWithExpiration(itemShelfConnection, itemShelfConnection.getCount()));
+                    itemShelfConnectionService.delete(itemShelfConnection.getId());
+                }
+
+                alreadyCount += itemShelfConnection.getCount();
+            }
+
+            return Util.createJsonFromObject(unstoreItemResponse);
 
         } catch (IOException e) {
-
-
             e.printStackTrace();
             return null;
         }
+    }
 
-        return null;
+    public static ItemPlaceWithExpiration getItemPlaceWithExpiration(ItemShelfConnection itemShelfConnection, int count) {
+        if(itemShelfConnection == null) return null;
+
+        ItemPlaceWithExpiration itemPlaceWithExpiration = new ItemPlaceWithExpiration();
+        itemPlaceWithExpiration.setShelfNumber(itemShelfConnection.getShelf().getShelfNumber());
+        itemPlaceWithExpiration.setDateOfExpiration(Util.getCsStringFromDate(itemShelfConnection.getItem().getExpirationDate()));
+        itemPlaceWithExpiration.setBoxNumber(itemShelfConnection.getShelf().getBox().getBoxNumber());
+        itemPlaceWithExpiration.setCount(count);
+
+        return itemPlaceWithExpiration;
     }
 
     //nepovinne
@@ -190,8 +239,24 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Transactional
     public String ejectionItems() {
         List<Item> itemsToDelete = itemService.findExpiredItems();
-        List itemPlaces = itemService.getItemsPlaces(itemsToDelete);
         itemService.deleteItems(itemsToDelete);
+        List<Object[]> list = itemService.getItemsPlaces(itemsToDelete);
+        List<ItemPlace> itemPlaceExpiredList = new ArrayList<>();
+        for(Object[] o:list){
+            ItemPlace ItemPlace = new ItemPlace();
+            ItemPlace.setCount((int) o[0]);
+            ItemPlace.setShelfNumber((String) o[1]);
+            ItemPlace.setBoxNumber(((BigInteger) o[2]).longValue());
+            itemPlaceExpiredList.add(ItemPlace);
+        }
+        ItemPlacesResponse<ItemPlace> response = new ItemPlacesResponse<>();
+        response.setItemPlace(itemPlaceExpiredList);
+
+        try {
+            return Util.createJsonFromObject(response);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
