@@ -54,7 +54,6 @@ public class ItemShelfConnectionServiceTest extends AbstractServiceTest {
         Assert.assertNotNull(kk4);
         Assert.assertEquals(1, kk4.size());
 
-        shelfService.delete(shelf.getId());
         boxService.delete(box.getId());
         itemService.delete(item.getId());
     }
