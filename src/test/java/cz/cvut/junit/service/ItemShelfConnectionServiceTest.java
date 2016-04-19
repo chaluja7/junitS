@@ -2,6 +2,7 @@ package cz.cvut.junit.service;
 
 import cz.cvut.junit.entity.*;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -27,6 +28,7 @@ public class ItemShelfConnectionServiceTest extends AbstractServiceTest {
     protected BoxService boxService;
 
     @Test
+    @Ignore
     public void testItemShelfConnectionCrud() {
         Box box = BoxServiceTest.getBox(1l, CoolingType.COOLING);
         boxService.persist(box);
