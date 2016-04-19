@@ -1,16 +1,13 @@
 package cz.cvut.junit.util;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import cz.cvut.junit.web.wrapper.init.WarehouseInit;
-import org.joda.time.format.DateTimeFormat;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  * Created by frox on 19.4.16.
@@ -58,5 +55,14 @@ public class Util {
 
     public static String getDateTimeCsFormat(){
         return "dd.MM.yyyy";
+    }
+
+    public static Date getDateFromCsFormat(String dateString) {
+        DateFormat df = new SimpleDateFormat(getDateTimeCsFormat());
+        try {
+            return df.parse(dateString);
+        } catch(ParseException e) {
+            return null;
+        }
     }
 }

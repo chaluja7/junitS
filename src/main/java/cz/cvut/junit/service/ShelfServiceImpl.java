@@ -54,4 +54,14 @@ public class ShelfServiceImpl implements ShelfService {
     public List<Shelf> findAll() {
         return hibernateShelfDao.findAll();
     }
+
+    @Override
+    @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
+    public List<Shelf> findEmptyShelfs(int minimumCapacity) {
+
+        Shelf shelfForGivenCapacity = hibernateShelfDao.findShelfForGivenCapacity(minimumCapacity);
+
+
+        return null;
+    }
 }

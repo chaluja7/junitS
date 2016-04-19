@@ -23,4 +23,11 @@ public interface ShelfService {
 
     List<Shelf> findAll();
 
+    /**
+     * najde police, kam ulozime polozky - idealne jednu, ale kdyby takova nebyla tak jich vrati vic
+     * @param minimumCapacity
+     * @return
+     */
+    List<Shelf> findEmptyShelfs(int minimumCapacity);
+
 }

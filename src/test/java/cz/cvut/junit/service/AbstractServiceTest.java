@@ -1,10 +1,13 @@
 package cz.cvut.junit.service;
 
+import cz.cvut.junit.util.Util;
+import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.springframework.test.annotation.Rollback;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.io.File;
 
 /**
  * Abstract service test.
@@ -17,6 +20,15 @@ import org.springframework.transaction.annotation.Transactional;
 //@Rollback
 //@Transactional(transactionManager = "transactionManager")
 public abstract class AbstractServiceTest {
+
+    @Autowired
+    protected WarehouseConfigurationService warehouseConfigurationService;
+
+    @Before
+    public void init() {
+        String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/init1.json").getFile()));
+        warehouseConfigurationService.initializateWarehouse(s);
+    }
 
 }
 

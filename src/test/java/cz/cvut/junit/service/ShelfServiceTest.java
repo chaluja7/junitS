@@ -7,6 +7,8 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
+
 /**
  * @author jakubchalupa
  * @since 19.04.16
@@ -37,6 +39,13 @@ public class ShelfServiceTest extends AbstractServiceTest {
 
         boxService.delete(box.getId());
     }
+
+    @Test
+    public void testFindEmptyShelfs() {
+        List<Shelf> emptyShelfs = shelfService.findEmptyShelfs(50);
+        Assert.assertNotNull(emptyShelfs);
+    }
+
 
     public static Shelf getShelf(String shelfNumber, Integer capacity, Box box) {
         Shelf shelf = new Shelf();
