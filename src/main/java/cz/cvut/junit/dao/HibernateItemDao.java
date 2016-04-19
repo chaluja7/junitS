@@ -26,7 +26,6 @@ public class HibernateItemDao extends AbstractGenericHibernateDao<Item> {
 
     public  List<Item> findExpiredItems(Date expireDate) {
         return sessionFactory.getCurrentSession().getNamedQuery("Item.findExpiredItems").setParameter("date",expireDate).list();
-
     }
 
     public List getItemsPlaces(List<Item> items) {
