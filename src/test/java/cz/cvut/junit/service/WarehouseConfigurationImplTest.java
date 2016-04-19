@@ -33,10 +33,19 @@ public class WarehouseConfigurationImplTest {
         System.out.println(Util.createJsonFromObject(warehouseInit1.getCompany()));
     }
 
+    @Test
+    public void testInitializateWarehouseInit2() throws Exception {
+        WarehouseInit warehouseInit2 =  createWarehouse("init2.json");
+        assertEquals(30, warehouseInit2.getWarehouse().getCoolingBoxes().size());
+        assertEquals("Maso Slany s.r.o.", warehouseInit2.getCompany().getName());
+        assertJsonEquals("{\"name\":\"Maso Slany s.r.o.\"}",Util.createJsonFromObject(warehouseInit2.getCompany()));
+        System.out.println(Util.createJsonFromObject(warehouseInit2.getCompany()));
+    }
+
     private WarehouseInit createWarehouse(String jsonFileName) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         ClassLoader classLoader = getClass().getClassLoader();
-        File file = new File(classLoader.getResource("testJson/init1.json").getFile());
+        File file = new File(classLoader.getResource("testJson/"+jsonFileName).getFile());
         return (WarehouseInit)Util.createObjectFromJson(Util.readFile(file), WarehouseInit.class);
     }
 
