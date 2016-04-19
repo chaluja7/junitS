@@ -33,7 +33,7 @@ public class ReportServiceImpl implements ReportService{
         HashMap<String, Integer> expirations = expirationService.findAll();
         List<ItemShelfConnection> itemShelfConnections = itemShelfConnectionService.findAll();
         List<Item> items = itemService.findAll();
-        
+
 
         if(reportItems == null){
             reportItems = new ArrayList<>();
