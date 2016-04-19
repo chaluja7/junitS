@@ -49,8 +49,7 @@ public class SecurityInterceptor implements HandlerInterceptor {
             //pole roli, ktere jsou nutne pro tento resource
             Role.Type[] rolesNeeded = methodAnnotation.value();
 
-            // TODO hashovat token
-            String securityHeaderHashed = HashUtils.getHash(securityHeader, HashUtils.SHA);
+            String securityHeaderHashed = HashUtils.computeSHAHash(securityHeader);
             Person person = personService.findPersonByToken(securityHeaderHashed);
             for (Role.Type roleNeeded : rolesNeeded) {
                 if (person.hasRole(roleNeeded)) {

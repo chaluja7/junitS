@@ -10,31 +10,6 @@ import java.security.MessageDigest;
  */
 public class HashUtils {
 
-    public static final String BCRYPT = "BCRYPT";
-    public static final String SHA = "SHA";
-    private static final int SALT_LENGTH = 12;
-
-    public static String getHash(String s, String method) {
-        if (method.equals(BCRYPT)) {
-            return computeBcryptHash(s);
-        } else {
-            return computeSHAHash(s);
-        }
-    }
-
-    public static boolean matchHash(String original, String hashed, String method) {
-        if (method.equals(BCRYPT)) {
-            return matchBcryptHash(original, hashed);
-        } else {
-            return matchSHAHash(original, hashed);
-        }
-    }
-
-    private static boolean matchSHAHash(String original, String hashed) {
-        String originalHash = computeSHAHash(original);
-        return originalHash.equals(hashed);
-    }
-
     private static String convertToHex(byte[] data) {
         StringBuilder builder = new StringBuilder();
 
@@ -56,7 +31,7 @@ public class HashUtils {
         return builder.toString();
     }
 
-    private static String computeSHAHash(String s) {
+    public static String computeSHAHash(String s) {
         if(s == null) {
             return null;
         }
@@ -72,14 +47,5 @@ public class HashUtils {
         byte[] sha256hash = md.digest();
         return convertToHex(sha256hash);
     }
-
-    private static String computeBcryptHash (String s) {
-        return BCrypt.hashpw(s, BCrypt.gensalt(SALT_LENGTH));
-    }
-
-    private static boolean matchBcryptHash (String original, String hashed) {
-        return BCrypt.checkpw(original, hashed);
-    }
-
 
 }

@@ -29,16 +29,14 @@ public class PersonServiceImpl implements PersonService {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public Person findPersonByToken(String token) {
-        // TODO hashovat token
-        String tokenHashed = HashUtils.getHash(token, HashUtils.SHA);
+        String tokenHashed = HashUtils.computeSHAHash(token);
         return hibernatePersonDao.findPersonByToken(tokenHashed);
     }
 
     @Override
     @Transactional
     public void persistPerson(Person person) {
-        // TODO hashovat token
-        String tokenHashed = HashUtils.getHash(person.getToken(), HashUtils.SHA);
+        String tokenHashed = HashUtils.computeSHAHash(person.getToken());
         person.setToken(tokenHashed);
         hibernatePersonDao.persist(person);
     }
