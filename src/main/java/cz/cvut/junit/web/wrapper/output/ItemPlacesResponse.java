@@ -9,15 +9,15 @@ import java.util.List;
  * Created by frox on 19.4.16.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ItemPlacesResponse {
+public class ItemPlacesResponse<T> {
     @JsonProperty("item-place")
-    List<ItemPlaceWithExpiration> itemPlace;
+    List<T> itemPlace;
 
-    public List<ItemPlaceWithExpiration> getItemPlace() {
+    public List<T> getItemPlace() {
         return itemPlace;
     }
 
-    public void setItemPlace(List<ItemPlaceWithExpiration> itemPlace) {
+    public void setItemPlace(List<T> itemPlace) {
         this.itemPlace = itemPlace;
     }
 }

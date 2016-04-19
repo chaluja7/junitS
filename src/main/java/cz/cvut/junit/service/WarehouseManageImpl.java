@@ -2,8 +2,12 @@ package cz.cvut.junit.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import cz.cvut.junit.entity.Item;
+import cz.cvut.junit.entity.Shelf;
+import cz.cvut.junit.entity.Item;
 import cz.cvut.junit.util.Util;
 import cz.cvut.junit.web.wrapper.input.ItemPlacesRequest;
+import cz.cvut.junit.web.wrapper.output.ItemPlace;
+import cz.cvut.junit.web.wrapper.output.ItemPlacesResponse;
 import cz.cvut.junit.web.wrapper.input.StoreItemRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,6 +15,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 /**
  * Created by dacos on 19.4.16.
@@ -102,11 +109,9 @@ public class WarehouseManageImpl implements WarehouseManageService {
     @Override
     @Transactional
     public String ejectionItems() {
-        try {
-            return Util.createJsonFromObject(itemService.deleteExpiredItems());
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
+        List<Item> itemsToDelete = itemService.findExpiredItems();
+        List itemPlaces = itemService.getItemsPlaces(itemsToDelete);
+        itemService.deleteItems(itemsToDelete);
         return null;
     }
 

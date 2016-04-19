@@ -18,7 +18,9 @@ public interface ItemService {
 
     List<Item> findExpiredItems();
 
-    List<Item> deleteExpiredItems();
+    void deleteItems(List<Item> list);
+
+    List getItemsPlaces(List<Item> items);
 
     void persist(Item item);
 

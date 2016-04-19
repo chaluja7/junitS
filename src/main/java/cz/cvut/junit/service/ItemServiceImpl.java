@@ -46,12 +46,17 @@ public class ItemServiceImpl implements ItemService {
 
     @Override
     @Transactional
-    public List<Item> deleteExpiredItems() {
-        List<Item> expiredItems = findExpiredItems();
-        for (Item i : expiredItems) {
+    public void deleteItems(List<Item> itemsToDelete) {
+        for (Item i : itemsToDelete) {
             delete(i.getId());
         }
-        return expiredItems;
+    }
+
+    @Override
+    @Transactional
+    public List getItemsPlaces(List<Item> items){
+        return hibernateItemDao.getItemsPlaces(items);
+
     }
 
     @Override
