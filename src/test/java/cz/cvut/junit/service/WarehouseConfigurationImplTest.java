@@ -2,8 +2,11 @@ package cz.cvut.junit.service;
 
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import cz.cvut.junit.entity.Config;
 import cz.cvut.junit.util.Util;
 import cz.cvut.junit.web.wrapper.init.WarehouseInit;
+import org.joda.time.DateTime;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -11,6 +14,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Scanner;
 
 import static net.javacrumbs.jsonunit.JsonAssert.assertJsonEquals;
@@ -19,10 +23,13 @@ import static org.junit.Assert.*;
 /**
  * Created by frox on 19.4.16.
  */
-public class WarehouseConfigurationImplTest {
+public class WarehouseConfigurationImplTest extends AbstractServiceTest{
 
     @Autowired
     protected WarehouseConfigurationService warehouseConfigurationService;
+
+    @Autowired
+    protected ConfigService configService;
 
     @Test
     public void testInitializateWarehouseInit1() throws Exception {
@@ -51,6 +58,21 @@ public class WarehouseConfigurationImplTest {
 
     @Test
     public void testShiftWarehouseSystemDate() throws Exception {
+
+    }
+
+    @Test
+    public void testInitializateWarehouse() throws Exception {
+
+    }
+
+    @Test
+    public void testShiftWarehouseSystemDate1() throws Exception {
+        Config config = configService.getConfig();
+        Date tomorrow = new DateTime(config.getDate()).plusDays(1).toDate();
+        warehouseConfigurationService.shiftWarehouseSystemDate();
+        config = configService.getConfig();
+        Assert.assertEquals(tomorrow,config.getDate());
 
     }
 }

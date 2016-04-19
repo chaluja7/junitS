@@ -14,9 +14,6 @@ public interface ConfigService {
 
     Config getConfig();
 
-
-    void persist(Config config);
-
     void merge(Config config);
 
 

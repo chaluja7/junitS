@@ -29,12 +29,6 @@ public class ConfigServiceImpl implements ConfigService {
 
     @Override
     @Transactional
-    public void persist(Config config) {
-        hibernateConfigDao.persist(config);
-    }
-
-    @Override
-    @Transactional
     public void merge(Config config) {
         hibernateConfigDao.merge(config);
 
