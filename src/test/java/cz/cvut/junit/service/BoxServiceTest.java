@@ -16,7 +16,7 @@ public class BoxServiceTest extends AbstractServiceTest {
     protected BoxService boxService;
 
     @Test
-    public void testItemCrud() {
+    public void testBoxCrud() {
         Box box = getBox(1l, CoolingType.COOLING);
 
         boxService.persist(box);

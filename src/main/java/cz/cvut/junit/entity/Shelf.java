@@ -11,6 +11,9 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "shelfs")
+@NamedQueries({
+    @NamedQuery(name = "Shelf.findByNumberAndBoxNumber", query = "FROM Shelf s WHERE s.shelfNumber = :shelfNumber AND s.box.boxNumber = :boxNumber")
+})
 public class Shelf extends AbstractEntity {
 
     private static final long serialVersionUID = -4658382458920361450L;
