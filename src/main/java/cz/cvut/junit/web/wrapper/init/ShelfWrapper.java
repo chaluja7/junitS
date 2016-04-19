@@ -7,8 +7,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 public class ShelfWrapper {
     @JsonProperty("number")
-    String number;
+    private String number;
 
     @JsonProperty("capacity")
-    int capacity;
+    private int capacity;
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
 }
