@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.File;
 
+import static net.javacrumbs.jsonunit.JsonAssert.assertJsonPartEquals;
+
 /**
  * Created by dacos on 19.4.16.
  */
@@ -66,8 +68,10 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
     @Test
     public void testEjectionItems() throws Exception {
         warehouseManageService.putItemInStock("{ \"type\" : \"PORK\", \"count\" : 84, \"date-of-slaughter\" : \"25.02.2015\", \"is-frozen\" : false }");
+        warehouseManageService.putItemInStock("{ \"type\" : \"VEAL\", \"count\" : 30, \"date-of-slaughter\" : \"10.04.2016\", \"is-frozen\" : false }");
         String ss = warehouseManageService.ejectionItems();
         System.out.println(ss);
+        assertJsonPartEquals(84, ss.replace("item-place","itemPlace"),"itemPlace[0].count");
 
     }
 

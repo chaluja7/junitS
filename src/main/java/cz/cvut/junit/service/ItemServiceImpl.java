@@ -24,6 +24,9 @@ public class ItemServiceImpl implements ItemService {
     protected HibernateItemDao hibernateItemDao;
 
     @Autowired
+    protected ConfigService configService;
+
+    @Autowired
     protected ExpirationService expirationService;
 
     @Override
@@ -42,7 +45,7 @@ public class ItemServiceImpl implements ItemService {
     @Override
     @Transactional
     public List<Item> findExpiredItems() {
-        return hibernateItemDao.findExpiredItems(new Date());
+        return hibernateItemDao.findExpiredItems(configService.getConfig().getDate());
     }
 
     @Override
