@@ -66,8 +66,8 @@ INSERT INTO expirations (itemtype, expirationdays) VALUES ('VEAL', 21);
 TRUNCATE config CASCADE;
 INSERT INTO config(id, date) VALUES (1, '2016-04-19 00:00:00.0');
 
--- TRUNCATE boxes CASCADE;
--- INSERT INTO boxes(boxnumber, coolingtype) VALUES (41, 'FREEZING');
+TRUNCATE boxes CASCADE;
+INSERT INTO boxes(boxnumber, coolingtype) VALUES (41, 'COOLING');
 -- INSERT INTO boxes(boxnumber, coolingtype) VALUES (49, 'FREEZING');
 -- INSERT INTO boxes(boxnumber, coolingtype) VALUES (46, 'FREEZING');
 -- INSERT INTO boxes(boxnumber, coolingtype) VALUES (90, 'FREEZING');

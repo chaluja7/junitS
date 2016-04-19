@@ -7,6 +7,7 @@ import cz.cvut.junit.entity.ItemShelfConnection;
 import cz.cvut.junit.entity.Shelf;
 import cz.cvut.junit.pojo.ReportItem;
 import cz.cvut.junit.util.Util;
+import cz.cvut.junit.web.controller.exception.UnimplementedException;
 import cz.cvut.junit.web.wrapper.input.ItemPlacesRequest;
 import cz.cvut.junit.web.wrapper.input.StoreItemRequest;
 import cz.cvut.junit.web.wrapper.input.UnstoreItemRequest;
@@ -54,7 +55,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
                 itemPlaceWithExpiration.setCount((int)o[0]);
                 itemPlaceWithExpiration.setShelfNumber((String)o[1]);
                 itemPlaceWithExpiration.setBoxNumber(((BigInteger)o[2]).longValue());
-                itemPlaceWithExpiration.setDateOfExpiration(((Date)o[3]).toString());
+                itemPlaceWithExpiration.setDateOfExpiration(Util.getCsStringFromDate((Date)o[3]));
                 itemPlaceWithExpirationList.add(itemPlaceWithExpiration);
             }
             ItemPlacesResponse<ItemPlaceWithExpiration> response = new ItemPlacesResponse<>();
@@ -89,7 +90,8 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Override
     @Transactional
     public String preparationShipmentOfMeat(String inputJson) {
-        return null;
+        // TODO
+        throw new UnimplementedException("unimplemented");
     }
 
     private ItemPlace getItemPlaceFromShelf(Shelf shelf, int count) {
@@ -164,7 +166,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Override
     @Transactional
     public String receivingShipments(String inputJson) {
-        return null;
+        throw new UnimplementedException("unimplemented");
     }
 
     @Override
@@ -212,13 +214,15 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Override
     @Transactional
     public void moveItem(String inputJson) {
-
+        // TODO
+        throw new UnimplementedException("unimplemented");
     }
 
     //nepovinne
     @Override
     @Transactional
     public void emptyCoolingBoxForCleaning(String inputJson) {
-
+        // TODO
+        throw new UnimplementedException("unimplemented");
     }
 }

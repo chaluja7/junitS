@@ -65,4 +65,9 @@ public class Util {
             return null;
         }
     }
+
+    public static String getCsStringFromDate(Date date) {
+        DateFormat df = new SimpleDateFormat(getDateTimeCsFormat());
+        return  df.format(date);
+    }
 }
