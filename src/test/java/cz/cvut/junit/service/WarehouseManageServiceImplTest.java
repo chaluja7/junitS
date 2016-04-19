@@ -33,7 +33,12 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 
     @Test
     public void testGetPickingItemFromWarehouseByMeatType() throws Exception {
+        String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store1.json").getFile()));
+        String s1 = warehouseManageService.putItemInStock(s);
 
+        s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/unstore1.json").getFile()));
+        String s2 = warehouseManageService.getPickingItemFromWarehouseByMeatType(s);
+        int i = 0;
     }
 
     @Test
