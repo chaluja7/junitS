@@ -1,6 +1,7 @@
 package cz.cvut.junit.dao;
 
 import cz.cvut.junit.dao.generics.AbstractGenericHibernateDao;
+import cz.cvut.junit.entity.CoolingType;
 import cz.cvut.junit.entity.Item;
 import cz.cvut.junit.web.wrapper.output.ItemPlace;
 import cz.cvut.junit.web.wrapper.output.ItemPlaceWithExpiration;
@@ -43,10 +44,13 @@ public class HibernateItemDao extends AbstractGenericHibernateDao<Item> {
     }
 
     public List<ItemPlaceWithExpiration> getItemsByTypes(String meatType, String coolingType) {
+
         String sql = "SELECT itemshelfs.count, shelfs.shelfnumber,boxes.boxnumber, items.expirationdate FROM itemshelfs JOIN items ON items.id = itemshelfs.itemid \n" +
                 "JOIN shelfs ON itemshelfs.shelfid = shelfs.id \n" +
-                "JOIN boxes ON shelfs.boxid = boxes.id";
-        return sessionFactory.getCurrentSession().createSQLQuery(sql).list();
+                "JOIN boxes ON shelfs.boxid = boxes.id " +
+                "WHERE items.type = :type AND items.isfrozen = :isFrozen";
+        boolean isFrozen = CoolingType.FREEZING.name().equals(coolingType);
+        return sessionFactory.getCurrentSession().createSQLQuery(sql).setParameter("type", meatType).setParameter("isFrozen", isFrozen).list();
 
     }
 }

@@ -46,9 +46,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     public String getLocationOfItemInWarehouse(String inputJson) {
         try {
             ItemPlacesRequest itemPlaceRequest = (ItemPlacesRequest) Util.createObjectFromJson(inputJson, ItemPlacesRequest.class);
-            itemPlaceRequest.getCoolingType();
-            itemPlaceRequest.getType();
-            List<Object[]> list = itemService.getItemsByType(null,null);
+            List<Object[]> list = itemService.getItemsByType(itemPlaceRequest.getType(),itemPlaceRequest.getCoolingType());
             List<ItemPlaceWithExpiration> itemPlaceWithExpirationList = new ArrayList<>();
             for(Object[] o:list){
                 ItemPlaceWithExpiration itemPlaceWithExpiration = new ItemPlaceWithExpiration();

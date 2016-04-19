@@ -23,7 +23,7 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 
         String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store1.json").getFile()));
         warehouseManageService.putItemInStock(s);
-        s = warehouseManageService.getLocationOfItemInWarehouse("{ \"type\" : \"PORK\", \"cooling-type\" : \"FREEZING\" }");
+        s = warehouseManageService.getLocationOfItemInWarehouse("{ \"type\" : \"PORK\", \"cooling-type\" : \"COOLING\" }");
         System.out.println(s);
 
 
