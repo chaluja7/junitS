@@ -1,6 +1,7 @@
 package cz.cvut.junit.service;
 
 
+import cz.cvut.junit.entity.CoolingType;
 import cz.cvut.junit.entity.Shelf;
 
 import java.util.List;
@@ -28,6 +29,6 @@ public interface ShelfService {
      * @param minimumCapacity
      * @return
      */
-    List<Shelf> findEmptyShelfs(int minimumCapacity);
+    List<Shelf> findEmptyShelfs(int minimumCapacity, CoolingType coolingType);
 
 }

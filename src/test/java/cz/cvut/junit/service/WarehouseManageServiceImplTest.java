@@ -42,7 +42,8 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
     @Test
     public void testPutItemInStock() throws Exception {
         String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store1.json").getFile()));
-        Assert.assertNotNull(s);
+        String s1 = warehouseManageService.putItemInStock(s);
+        Assert.assertNotNull(s1);
     }
 
     @Test

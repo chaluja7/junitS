@@ -13,7 +13,7 @@ import java.util.Set;
 @Table(name = "shelfs")
 @NamedQueries({
     @NamedQuery(name = "Shelf.findByNumberAndBoxNumber", query = "FROM Shelf s WHERE s.shelfNumber = :shelfNumber AND s.box.boxNumber = :boxNumber"),
-    @NamedQuery(name = "Shelf.findAllWithConnections", query = "SELECT DISTINCT s FROM Shelf s LEFT OUTER JOIN FETCH s.itemShelfConnections LEFT OUTER JOIN FETCH s.box")
+    @NamedQuery(name = "Shelf.findAllWithConnections", query = "SELECT DISTINCT s FROM Shelf s LEFT OUTER JOIN FETCH s.itemShelfConnections LEFT OUTER JOIN FETCH s.box WHERE s.box.coolingType = :coolingType")
 })
 public class Shelf extends AbstractEntity {
 

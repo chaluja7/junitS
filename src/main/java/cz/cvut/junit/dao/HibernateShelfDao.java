@@ -1,6 +1,7 @@
 package cz.cvut.junit.dao;
 
 import cz.cvut.junit.dao.generics.AbstractGenericHibernateDao;
+import cz.cvut.junit.entity.CoolingType;
 import cz.cvut.junit.entity.Shelf;
 import org.springframework.stereotype.Repository;
 
@@ -22,8 +23,8 @@ public class HibernateShelfDao extends AbstractGenericHibernateDao<Shelf> {
         return (Shelf) sessionFactory.getCurrentSession().getNamedQuery("Shelf.findByNumberAndBoxNumber").setParameter("shelfNumber", shelfNumber).setParameter("boxNumber", boxNumber).uniqueResult();
     }
 
-    public List<Shelf> findAllShelfsWithShelfItemConnection() {
-        return sessionFactory.getCurrentSession().getNamedQuery("Shelf.findAllWithConnections").list();
+    public List<Shelf> findAllShelfsWithShelfItemConnection(CoolingType coolingType) {
+        return sessionFactory.getCurrentSession().getNamedQuery("Shelf.findAllWithConnections").setParameter("coolingType", coolingType).list();
     }
 
 }

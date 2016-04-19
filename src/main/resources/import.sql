@@ -66,3 +66,25 @@ INSERT INTO expirations (itemtype, expirationdays) VALUES ('VEAL', 21);
 TRUNCATE config CASCADE;
 INSERT INTO config(id, date) VALUES (1, '2016-04-19 00:00:00.0');
 
+-- TRUNCATE boxes CASCADE;
+-- INSERT INTO boxes(boxnumber, coolingtype) VALUES (41, 'FREEZING');
+-- INSERT INTO boxes(boxnumber, coolingtype) VALUES (49, 'FREEZING');
+-- INSERT INTO boxes(boxnumber, coolingtype) VALUES (46, 'FREEZING');
+-- INSERT INTO boxes(boxnumber, coolingtype) VALUES (90, 'FREEZING');
+-- INSERT INTO boxes(boxnumber, coolingtype) VALUES (1, 'FREEZING');
+-- INSERT INTO boxes(boxnumber, coolingtype) VALUES (15, 'COOLING');
+-- INSERT INTO boxes(boxnumber, coolingtype) VALUES (54, 'COOLING');
+
+-- TRUNCATE items CASCADE;
+-- INSERT INTO items(expirationdate, isfrozen, killdate, type) VALUES (NULL , TRUE, '2016-09-09 00:00:00.0', 'ALIGATOR');
+-- INSERT INTO items(expirationdate, isfrozen, killdate, type) VALUES (NULL , TRUE, '2016-09-10 00:00:00.0', 'BACON');
+-- INSERT INTO items(expirationdate, isfrozen, killdate, type) VALUES (NULL , TRUE, '2016-09-11 00:00:00.0', 'BEEF');
+-- INSERT INTO items(expirationdate, isfrozen, killdate, type) VALUES (NULL , TRUE, '2016-09-12 00:00:00.0', 'CHICKEN');
+
+-- TRUNCATE shelfs CASCADE;
+-- INSERT INTO shelfs(boxid, capacity, shelfnumber) VALUES (1, 10, 'u22');
+-- INSERT INTO shelfs(boxid, capacity, shelfnumber) VALUES (2, 20, 'w24');
+
+-- TRUNCATE itemshelfs CASCADE;
+-- INSERT INTO itemshelfs(itemid, shelfid, count) VALUES (1, 1, 120);
+-- INSERT INTO itemshelfs(itemid, shelfid, count) VALUES (2, 2, 44);
