@@ -1,6 +1,8 @@
 package cz.cvut.junit.service;
 
 import cz.cvut.junit.util.Util;
+import cz.cvut.junit.web.wrapper.output.ItemPlace;
+import cz.cvut.junit.web.wrapper.output.ItemPlacesResponse;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,8 +60,7 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 
     @Test
     public void testEjectionItems() throws Exception {
-        String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/expired_test_data.json").getFile()));
-        warehouseManageService.putItemInStock(s);
+        warehouseManageService.putItemInStock("{ \"type\" : \"PORK\", \"count\" : 84, \"date-of-slaughter\" : \"25.02.2015\", \"is-frozen\" : false }");
         String ss = warehouseManageService.ejectionItems();
         System.out.println(ss);
 
