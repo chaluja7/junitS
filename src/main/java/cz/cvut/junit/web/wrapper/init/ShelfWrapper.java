@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 /**
  * Created by frox on 19.4.16.
  */
-public class Shelf {
+public class ShelfWrapper {
     @JsonProperty("number")
     String number;
 

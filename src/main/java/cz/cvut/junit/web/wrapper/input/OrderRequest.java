@@ -1,10 +1,13 @@
-package cz.cvut.junit.web.wrapper.init;
+package cz.cvut.junit.web.wrapper.input;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 /**
- * Created by frox on 19.4.16.
+ * Created by sange on 19/04/16.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class Company {
+public class OrderRequest {
+
+
+
 }

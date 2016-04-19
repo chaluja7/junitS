@@ -7,12 +7,12 @@ import java.util.List;
 /**
  * Created by frox on 19.4.16.
  */
-public class Warehouse {
+public class WarehouseWrapper {
     @JsonProperty("serial-number")
     private String serialNumber;
 
     @JsonProperty("cooling-boxes")
-    private List<Box> coolingBoxes;
+    private List<BoxWrapper> coolingBoxes;
 
     public String getSerialNumber() {
         return serialNumber;
@@ -22,17 +22,17 @@ public class Warehouse {
         this.serialNumber = serialNumber;
     }
 
-    public List<Box> getCoolingBoxes() {
+    public List<BoxWrapper> getCoolingBoxes() {
         return coolingBoxes;
     }
 
-    public void setCoolingBoxes(List<Box> coolingBoxes) {
+    public void setCoolingBoxes(List<BoxWrapper> coolingBoxes) {
         this.coolingBoxes = coolingBoxes;
     }
 
     @Override
     public String toString() {
-        return "Warehouse{" +
+        return "WarehouseWrapper{" +
                 "serialNumber='" + serialNumber + '\'' +
                 ", coolingBoxes=" + coolingBoxes +
                 '}';
