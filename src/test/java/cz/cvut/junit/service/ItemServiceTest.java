@@ -18,10 +18,7 @@ public class ItemServiceTest extends AbstractServiceTest {
 
     @Test
     public void testItemCrud() {
-        Item item = new Item();
-        item.setType("ALLIGATOR");
-        item.setFrozen(true);
-        item.setKillDate(new Date());
+        Item item = getItem("ALLIGATOR", true, new Date());
 
         itemService.persist(item);
 
@@ -31,6 +28,15 @@ public class ItemServiceTest extends AbstractServiceTest {
         itemService.delete(item.getId());
         retrievedItem = itemService.find(item.getId());
         Assert.assertNull(retrievedItem);
+    }
+
+    public static Item getItem(String type, boolean isFrozen, Date killDate) {
+        Item item = new Item();
+        item.setType(type);
+        item.setFrozen(isFrozen);
+        item.setKillDate(killDate);
+
+        return item;
     }
 
 }

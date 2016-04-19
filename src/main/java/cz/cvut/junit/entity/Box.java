@@ -11,6 +11,9 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "boxes")
+@NamedQueries({
+    @NamedQuery(name = "Box.findByNumber", query = "FROM Box b WHERE b.boxNumber = :boxNumber")
+})
 public class Box extends AbstractEntity {
 
     private static final long serialVersionUID = -8272277429572589853L;
