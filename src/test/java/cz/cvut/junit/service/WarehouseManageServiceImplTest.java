@@ -1,8 +1,6 @@
 package cz.cvut.junit.service;
 
 import cz.cvut.junit.util.Util;
-import cz.cvut.junit.web.wrapper.output.ItemPlace;
-import cz.cvut.junit.web.wrapper.output.ItemPlacesResponse;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +33,9 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
     public void testGetPickingItemFromWarehouseByMeatType() throws Exception {
         String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store1.json").getFile()));
         String s1 = warehouseManageService.putItemInStock(s);
+
+        s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store2.json").getFile()));
+        s1 = warehouseManageService.putItemInStock(s);
 
         s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/unstore1.json").getFile()));
         String s2 = warehouseManageService.getPickingItemFromWarehouseByMeatType(s);
