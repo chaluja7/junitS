@@ -9,10 +9,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WarehouseInit {
     @JsonProperty("company")
-    Company company;
+    private Company company;
 
     @JsonProperty("warehouse")
-    Warehouse warehouse;
+    private Warehouse warehouse;
 
+    public Company getCompany() {
+        return company;
+    }
 
+    public void setCompany(Company company) {
+        this.company = company;
+    }
+
+    public Warehouse getWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(Warehouse warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    @Override
+    public String toString() {
+        return "WarehouseInit{" +
+                "company=" + company +
+                ", warehouse=" + warehouse +
+                '}';
+    }
 }
