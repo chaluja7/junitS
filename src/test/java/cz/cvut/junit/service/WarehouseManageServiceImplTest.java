@@ -53,6 +53,13 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 
     @Test
     public void testGenerateReportOnCurrentState() throws Exception {
+        warehouseManageService.putItemInStock("{ \"type\": \"LAMB\", \"count\": 33, \"date-of-slaughter\": \"25.03.2016\", \"is-frozen\": true }");
+        warehouseManageService.putItemInStock("{ \"type\": \"LAMB\", \"count\": 25, \"date-of-slaughter\": \"24.03.2016\", \"is-frozen\": false }");
+        warehouseManageService.putItemInStock("{ \"type\": \"PORK\", \"count\": 5, \"date-of-slaughter\": \"25.03.2016\", \"is-frozen\": true }");
+        warehouseManageService.putItemInStock("{ \"type\": \"PORK\", \"count\": 6, \"date-of-slaughter\": \"24.03.2016\", \"is-frozen\": true }");
+
+        byte [] b = warehouseManageService.generateReportOnCurrentState();
+        System.out.println(new String(b));
 
     }
 

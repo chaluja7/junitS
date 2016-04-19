@@ -47,7 +47,8 @@ public class ReportServiceImpl implements ReportService{
                     DateTime now = DateTime.now();
                     DateTime expDate = new DateTime(item.getExpirationDate());
 
-                    int expiresInDays = Days.daysBetween(now, expDate).getDays();;
+                    // plus jedna pro inclusive
+                    int expiresInDays = Days.daysBetween(now, expDate).getDays() + 1;
                     reportItem.setExpiresInDays(expiresInDays);
 
                     reportItems.add(reportItem);
