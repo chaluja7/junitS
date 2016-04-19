@@ -21,10 +21,10 @@ public class ShelfServiceTest extends AbstractServiceTest {
 
     @Test
     public void testShelfCrud() {
-        Box box = BoxServiceTest.getBox(44l, CoolingType.COOLING);
+        Box box = BoxServiceTest.getBox(999980l, CoolingType.COOLING);
         boxService.persist(box);
         box = boxService.find(box.getId());
-        Shelf shelf = getShelf("k4", 5, box);
+        Shelf shelf = getShelf("kxxx4", 5, box);
 
         shelfService.persist(shelf);
 

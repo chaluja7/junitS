@@ -52,7 +52,7 @@ public class Box extends AbstractEntity {
     }
 
     public void addShelf(Shelf shelf) {
-        if(getShelfs().contains(shelf)) {
+        if(!getShelfs().contains(shelf)) {
             getShelfs().add(shelf);
         }
 

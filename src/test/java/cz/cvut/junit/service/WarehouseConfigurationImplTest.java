@@ -1,24 +1,21 @@
 package cz.cvut.junit.service;
 
-import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cz.cvut.junit.entity.Config;
 import cz.cvut.junit.util.Util;
 import cz.cvut.junit.web.wrapper.init.WarehouseInit;
 import org.joda.time.DateTime;
 import org.junit.Assert;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 import java.util.Date;
-import java.util.Scanner;
 
 import static net.javacrumbs.jsonunit.JsonAssert.assertJsonEquals;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Created by frox on 19.4.16.
@@ -33,11 +30,18 @@ public class WarehouseConfigurationImplTest extends AbstractServiceTest{
 
     @Test
     public void testInitializateWarehouseInit1() throws Exception {
-        WarehouseInit warehouseInit1 =  createWarehouse("init1.json");
+        WarehouseInit warehouseInit1 = createWarehouse("init1.json");
         assertEquals(25, warehouseInit1.getWarehouse().getCoolingBoxes().size());
         assertEquals("Maso Slany s.r.o.",warehouseInit1.getCompany().getName());
         assertJsonEquals("{\"name\":\"Maso Slany s.r.o.\"}",Util.createJsonFromObject(warehouseInit1.getCompany()));
         System.out.println(Util.createJsonFromObject(warehouseInit1.getCompany()));
+    }
+
+    @Test
+    @Ignore
+    public void testInitializateWarehouseWithData() {
+        String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/init1.json").getFile()));
+        warehouseConfigurationService.initializateWarehouse(s);
     }
 
     @Test
