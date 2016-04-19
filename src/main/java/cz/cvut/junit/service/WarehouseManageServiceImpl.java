@@ -22,7 +22,7 @@ import java.util.List;
  * Created by dacos on 19.4.16.
  */
 @Service
-public class WarehouseManageImpl implements WarehouseManageService {
+public class WarehouseManageServiceImpl implements WarehouseManageService {
 
     @Autowired
     protected ItemService itemService;
