@@ -56,7 +56,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
                 itemPlaceWithExpiration.setCount((int)o[0]);
                 itemPlaceWithExpiration.setShelfNumber((String)o[1]);
                 itemPlaceWithExpiration.setBoxNumber(((BigInteger)o[2]).longValue());
-                itemPlaceWithExpiration.setDateOfExpiration(((Date)o[3]).toString());
+                itemPlaceWithExpiration.setDateOfExpiration(Util.getCsStringFromDate((Date)o[3]));
                 itemPlaceWithExpirationList.add(itemPlaceWithExpiration);
             }
             ItemPlacesResponse<ItemPlaceWithExpiration> response = new ItemPlacesResponse<>();
