@@ -22,17 +22,8 @@ public class HibernateShelfDao extends AbstractGenericHibernateDao<Shelf> {
         return (Shelf) sessionFactory.getCurrentSession().getNamedQuery("Shelf.findByNumberAndBoxNumber").setParameter("shelfNumber", shelfNumber).setParameter("boxNumber", boxNumber).uniqueResult();
     }
 
-    /**
-     * najde polici, kam se vejde dany pocet polozek
-     * @param minimumCapacity
-     * @return
-     */
-    public Shelf findShelfForGivenCapacity(int minimumCapacity) {
-        List list = sessionFactory.getCurrentSession().createQuery("from Shelf s left join s.itemShelfConnections").list();
-
-
-
-        return (Shelf) list.get(0);
+    public List<Shelf> findAllShelfsWithShelfItemConnection() {
+        return sessionFactory.getCurrentSession().getNamedQuery("Shelf.findAllWithConnections").list();
     }
 
 }

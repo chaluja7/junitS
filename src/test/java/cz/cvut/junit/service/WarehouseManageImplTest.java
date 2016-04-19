@@ -1,7 +1,11 @@
 package cz.cvut.junit.service;
 
+import cz.cvut.junit.util.Util;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.File;
 
 /**
  * Created by dacos on 19.4.16.
@@ -35,7 +39,8 @@ public class WarehouseManageImplTest extends AbstractServiceTest {
 
     @Test
     public void testPutItemInStock() throws Exception {
-
+        String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store1.json").getFile()));
+        Assert.assertNotNull(s);
     }
 
     @Test

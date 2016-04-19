@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
+import java.util.*;
 
 /**
  * @author jakubchalupa
@@ -58,9 +58,38 @@ public class ShelfServiceImpl implements ShelfService {
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
     public List<Shelf> findEmptyShelfs(int minimumCapacity) {
+        List<Shelf> allShelfs = hibernateShelfDao.findAllShelfsWithShelfItemConnection();
 
-        Shelf shelfForGivenCapacity = hibernateShelfDao.findShelfForGivenCapacity(minimumCapacity);
+        Map<Integer, List<Shelf>> capacityMap = new TreeMap<>();
+        for(Shelf shelf : allShelfs) {
+            int freeCapacity = shelf.getFreeCapacity();
+            if(capacityMap.containsKey(freeCapacity)) {
+                capacityMap.get(freeCapacity).add(shelf);
+            } else {
+                List<Shelf> list = new ArrayList<>();
+                list.add(shelf);
+                capacityMap.put(freeCapacity, list);
+            }
+        }
 
+        for(Map.Entry<Integer, List<Shelf>> entry : capacityMap.entrySet()) {
+            if(entry.getKey() >= minimumCapacity) {
+                return Collections.singletonList(entry.getValue().get(0));
+            }
+        }
+
+        //nemam volnou kapacitu - pujde to do vic polic
+        List<Shelf> shelfs = new ArrayList<>();
+        int alreadyCapacity = 0;
+        for(Map.Entry<Integer, List<Shelf>> entry : capacityMap.entrySet()) {
+            for(Shelf shelf : entry.getValue()) {
+                shelfs.add(shelf);
+                alreadyCapacity += entry.getKey();
+                if(alreadyCapacity >= minimumCapacity) {
+                    return shelfs;
+                }
+            }
+        }
 
         return null;
     }

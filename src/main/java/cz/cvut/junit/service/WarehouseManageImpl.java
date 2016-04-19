@@ -1,15 +1,14 @@
 package cz.cvut.junit.service;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import cz.cvut.junit.entity.Item;
+import cz.cvut.junit.entity.ItemShelfConnection;
 import cz.cvut.junit.entity.Shelf;
-import cz.cvut.junit.entity.Item;
 import cz.cvut.junit.pojo.ReportItem;
 import cz.cvut.junit.util.Util;
 import cz.cvut.junit.web.wrapper.input.ItemPlacesRequest;
+import cz.cvut.junit.web.wrapper.input.StoreItemRequest;
 import cz.cvut.junit.web.wrapper.output.ItemPlace;
 import cz.cvut.junit.web.wrapper.output.ItemPlacesResponse;
-import cz.cvut.junit.web.wrapper.input.StoreItemRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -17,8 +16,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.List;
 
 /**
@@ -32,6 +29,9 @@ public class WarehouseManageImpl implements WarehouseManageService {
 
     @Autowired
     protected ShelfService shelfService;
+
+    @Autowired
+    protected ItemShelfConnectionService itemShelfConnectionService;
 
     @Autowired
     protected ReportService reportService;
@@ -68,6 +68,15 @@ public class WarehouseManageImpl implements WarehouseManageService {
         return null;
     }
 
+    private ItemPlace getItemPlaceFromShelf(Shelf shelf, int count) {
+        ItemPlace itemPlace = new ItemPlace();
+        itemPlace.setShelfNumber(shelf.getShelfNumber());
+        itemPlace.setCount(count);
+        itemPlace.setBoxNumber(shelf.getBox().getBoxNumber());
+
+        return itemPlace;
+    }
+
     @Override
     @Transactional
     public String putItemInStock(String inputJson) {
@@ -83,18 +92,51 @@ public class WarehouseManageImpl implements WarehouseManageService {
 
             //TODO pridat umisteni do polic
             //vybrat volne police
+            List<Shelf> emptyShelfs = shelfService.findEmptyShelfs(storeItemRequest.getCount());
+            if(emptyShelfs == null || emptyShelfs.isEmpty()) {
+                throw new RuntimeException("not enough space on shelfs!");
+            }
 
 
+            ItemPlacesResponse<ItemPlace> itemPlaceItemPlacesResponse = new ItemPlacesResponse<>();
+            List<ItemPlace> itemPlaceList = new ArrayList<>();
+            itemPlaceItemPlacesResponse.setItemPlace(itemPlaceList);
 
+            if(emptyShelfs.size() == 1) {
+                //single shelf
+                ItemShelfConnection itemShelfConnection = new ItemShelfConnection();
+                itemShelfConnection.setCount(storeItemRequest.getCount());
+                itemShelfConnection.setItem(item);
+                itemShelfConnection.setShelf(emptyShelfs.get(0));
 
+                itemShelfConnectionService.persist(itemShelfConnection);
+
+                ItemPlace itemPlace = getItemPlaceFromShelf(emptyShelfs.get(0), storeItemRequest.getCount());
+                itemPlaceList.add(itemPlace);
+
+            } else {
+                int alreadyStored = 0;
+                for(Shelf emptyShelf : emptyShelfs) {
+                    ItemShelfConnection itemShelfConnection = new ItemShelfConnection();
+
+                    itemShelfConnection.setCount(Math.min(storeItemRequest.getCount(), emptyShelf.getFreeCapacity()));
+                    itemShelfConnection.setItem(item);
+                    itemShelfConnection.setShelf(emptyShelf);
+
+                    ItemPlace itemPlace = getItemPlaceFromShelf(emptyShelfs.get(0), Math.max(emptyShelf.getCapacity(), storeItemRequest.getCount() - alreadyStored));
+                    itemPlaceList.add(itemPlace);
+                    alreadyStored += emptyShelf.getFreeCapacity();
+
+                    itemShelfConnectionService.persist(itemShelfConnection);
+                }
+            }
+
+            return Util.createJsonFromObject(itemPlaceItemPlacesResponse);
 
         } catch (IOException e) {
             e.printStackTrace();
+            return null;
         }
-
-        return inputJson;
-
-
     }
 
     //nepovinne

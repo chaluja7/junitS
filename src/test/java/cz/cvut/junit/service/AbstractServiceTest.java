@@ -24,10 +24,14 @@ public abstract class AbstractServiceTest {
     @Autowired
     protected WarehouseConfigurationService warehouseConfigurationService;
 
+
+
     @Before
     public void init() {
         String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/init1.json").getFile()));
         warehouseConfigurationService.initializateWarehouse(s);
+
+
     }
 
 }

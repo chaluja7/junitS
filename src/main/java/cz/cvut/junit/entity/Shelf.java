@@ -12,7 +12,8 @@ import java.util.Set;
 @Entity
 @Table(name = "shelfs")
 @NamedQueries({
-    @NamedQuery(name = "Shelf.findByNumberAndBoxNumber", query = "FROM Shelf s WHERE s.shelfNumber = :shelfNumber AND s.box.boxNumber = :boxNumber")
+    @NamedQuery(name = "Shelf.findByNumberAndBoxNumber", query = "FROM Shelf s WHERE s.shelfNumber = :shelfNumber AND s.box.boxNumber = :boxNumber"),
+    @NamedQuery(name = "Shelf.findAllWithConnections", query = "SELECT DISTINCT s FROM Shelf s LEFT OUTER JOIN FETCH s.itemShelfConnections LEFT OUTER JOIN FETCH s.box")
 })
 public class Shelf extends AbstractEntity {
 
@@ -30,6 +31,15 @@ public class Shelf extends AbstractEntity {
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "item")
     private Set<ItemShelfConnection> itemShelfConnections;
+
+    public Integer getFreeCapacity() {
+        int capacity = getCapacity();
+        for(ItemShelfConnection itemShelfConnection : getItemShelfConnections()) {
+            capacity -= itemShelfConnection.getCount();
+        }
+
+        return capacity;
+    }
 
     public String getShelfNumber() {
         return shelfNumber;

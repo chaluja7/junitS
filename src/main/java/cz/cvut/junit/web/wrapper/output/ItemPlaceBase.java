@@ -9,17 +9,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class ItemPlaceBase {
     @JsonProperty("box-number")
-    private int boxNumber;
+    private long boxNumber;
 
     @JsonProperty("shelf-number")
     private String shelfNumber;
 
-
-    public int getBoxNumber() {
+    public long getBoxNumber() {
         return boxNumber;
     }
 
-    public void setBoxNumber(int boxNumber) {
+    public void setBoxNumber(long boxNumber) {
         this.boxNumber = boxNumber;
     }
 
