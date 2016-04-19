@@ -52,4 +52,6 @@ public class ItemShelfConnection extends AbstractEntity {
         this.count = count;
     }
 
+
+
 }

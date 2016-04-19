@@ -18,9 +18,6 @@ import java.util.*;
 public class ReportServiceImpl implements ReportService{
 
     @Autowired
-    private ExpirationService expirationService;
-
-    @Autowired
     private ItemShelfConnectionService itemShelfConnectionService;
 
     @Autowired
@@ -30,7 +27,6 @@ public class ReportServiceImpl implements ReportService{
 
     @Override
     public List<ReportItem> findAll() {
-        HashMap<String, Integer> expirations = expirationService.findAll();
         List<ItemShelfConnection> itemShelfConnections = itemShelfConnectionService.findAll();
         List<Item> items = itemService.findAll();
 
@@ -41,30 +37,25 @@ public class ReportServiceImpl implements ReportService{
 
         for (Item item : items) {
             for (ItemShelfConnection isc : itemShelfConnections) {
-                for (Map.Entry<String, Integer> e : expirations.entrySet()) {
-                    String type = e.getKey();
-                    int expirationDays = e.getValue();
-                    if(isc.getItem() == item && Objects.equals(item.getType(), type)){
+                if(Objects.equals(isc.getItem().getId(), item.getId())){
 
-                        ReportItem reportItem = new ReportItem();
-                        reportItem.setType(type);
-                        reportItem.setCount(isc.getCount());
-                        reportItem.setFrozen(item.getFrozen());
+                    ReportItem reportItem = new ReportItem();
+                    reportItem.setType(item.getType());
+                    reportItem.setCount(isc.getCount());
+                    reportItem.setFrozen(item.getFrozen());
 
-                        DateTime now = DateTime.now();
-                        DateTime killTime = new DateTime(item.getKillDate());
+                    DateTime now = DateTime.now();
+                    DateTime expDate = new DateTime(item.getExpirationDate());
 
-                        int expiresInDays = Days.daysBetween(killTime.plusDays(expirationDays), now).getDays();;
-                        reportItem.setExpiresInDays(expiresInDays);
+                    int expiresInDays = Days.daysBetween(now, expDate).getDays();;
+                    reportItem.setExpiresInDays(expiresInDays);
 
-                        reportItems.add(reportItem);
-                    }
-
+                    reportItems.add(reportItem);
                 }
             }
         }
 
-        return null;
+        return reportItems;
     }
 
 }

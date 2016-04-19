@@ -10,7 +10,7 @@ import java.io.File;
 /**
  * Created by dacos on 19.4.16.
  */
-public class WarehouseManageImplTest extends AbstractServiceTest {
+public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 
     @Autowired
     protected WarehouseManageService warehouseManageService;
