@@ -62,3 +62,7 @@ INSERT INTO expirations (itemtype, expirationdays) VALUES ('SWEETBREADS', 62);
 INSERT INTO expirations (itemtype, expirationdays) VALUES ('TURKEY', 80);
 INSERT INTO expirations (itemtype, expirationdays) VALUES ('TURTLE', 71);
 INSERT INTO expirations (itemtype, expirationdays) VALUES ('VEAL', 21);
+
+TRUNCATE expirations CASCADE;
+INSERT INTO config(id, date) VALUES (1, '2016-04-19 00:00:00.0');
+
