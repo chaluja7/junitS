@@ -13,7 +13,9 @@ import java.util.Set;
 @Entity
 @Table(name = "items")
 @NamedQueries({
-    @NamedQuery(name = "Item.findByType", query = "FROM Item i WHERE i.type = :type")
+    @NamedQuery(name = "Item.findByType", query = "FROM Item i WHERE i.type = :type"),
+    @NamedQuery(name = "Item.findExpiredItems", query = "FROM Item i WHERE i.expirationDate = :date")
+
 })
 public class Item extends AbstractEntity {
 
@@ -31,6 +33,17 @@ public class Item extends AbstractEntity {
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "item")
     private Set<ItemShelfConnection> itemShelfConnections;
 
+    @Column
+    private Date expirationDate;
+
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
     public String getType() {
         return type;
     }
@@ -44,6 +57,7 @@ public class Item extends AbstractEntity {
     }
 
     public void setKillDate(Date killDate) {
+        //todo: set expiration date
         this.killDate = killDate;
     }
 

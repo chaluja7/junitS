@@ -34,7 +34,7 @@ public class ItemShelfConnectionServiceTest extends AbstractServiceTest {
         Shelf shelf = ShelfServiceTest.getShelf("kk4", 500, box);
         shelfService.persist(shelf);
 
-        Item item = ItemServiceTest.getItem("BACON", false, new Date());
+        Item item = itemService.createItemObject("BACON", false, new Date());
         itemService.persist(item);
 
         ItemShelfConnection itemShelfConnection = getItemShelfConnection(item, shelf, 100);

@@ -3,6 +3,7 @@ package cz.cvut.junit.service;
 
 import cz.cvut.junit.entity.Item;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -15,11 +16,17 @@ public interface ItemService {
 
     List<Item> findByType(String type);
 
+    List<Item> findExpiredItems();
+
+    List<Item> deleteExpiredItems();
+
     void persist(Item item);
 
     void merge(Item item);
 
     void delete(long id);
+
+    Item createItemObject(String type, boolean isFrozen, Date killDate);
 
     List<Item> findAll();
 

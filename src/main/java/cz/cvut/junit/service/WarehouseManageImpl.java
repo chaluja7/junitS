@@ -62,6 +62,7 @@ public class WarehouseManageImpl implements WarehouseManageService {
     @Override
     @Transactional
     public String ejectionItems() {
+
         return null;
     }
 

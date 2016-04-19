@@ -38,7 +38,6 @@ public class WarehouseConfigurationServiceImplTest extends AbstractServiceTest{
     }
 
     @Test
-    @Ignore
     public void testInitializateWarehouseWithData() {
         String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/init1.json").getFile()));
         warehouseConfigurationService.initializateWarehouse(s);

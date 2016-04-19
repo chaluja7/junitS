@@ -6,6 +6,7 @@ import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author jakubchalupa
@@ -18,7 +19,7 @@ public class ItemServiceTest extends AbstractServiceTest {
 
     @Test
     public void testItemCrud() {
-        Item item = getItem("ALLIGATOR", true, new Date());
+        Item item = itemService.createItemObject("ALLIGATOR", true, new Date());
 
         itemService.persist(item);
 
@@ -30,13 +31,13 @@ public class ItemServiceTest extends AbstractServiceTest {
         Assert.assertNull(retrievedItem);
     }
 
-    public static Item getItem(String type, boolean isFrozen, Date killDate) {
-        Item item = new Item();
-        item.setType(type);
-        item.setFrozen(isFrozen);
-        item.setKillDate(killDate);
-
-        return item;
+    @Test
+    public void testFindExpiredItems(){
+        //TODO:
+        List<Item> expiredItems = itemService.findExpiredItems();
+        for(Item i:expiredItems){
+            System.out.println(i);
+        }
     }
 
 }

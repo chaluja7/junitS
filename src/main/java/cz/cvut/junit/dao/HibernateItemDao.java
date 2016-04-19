@@ -4,6 +4,7 @@ import cz.cvut.junit.dao.generics.AbstractGenericHibernateDao;
 import cz.cvut.junit.entity.Item;
 import org.springframework.stereotype.Repository;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,4 +23,8 @@ public class HibernateItemDao extends AbstractGenericHibernateDao<Item> {
         return sessionFactory.getCurrentSession().getNamedQuery("Item.findByType").setParameter("type", type).list();
     }
 
+    public  List<Item> findExpiredItems(Date expireDate) {
+        return sessionFactory.getCurrentSession().getNamedQuery("Item.findExpiredItems").setParameter("date",expireDate).list();
+
+    }
 }
