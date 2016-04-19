@@ -15,4 +15,19 @@ public class ItemLocationsRequest {
     @JsonProperty("cooling-type")
     private String coolingType;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getCoolingType() {
+        return coolingType;
+    }
+
+    public void setCoolingType(String coolingType) {
+        this.coolingType = coolingType;
+    }
 }

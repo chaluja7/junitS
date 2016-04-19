@@ -12,6 +12,9 @@ import java.util.Set;
  */
 @Entity
 @Table(name = "items")
+@NamedQueries({
+    @NamedQuery(name = "Item.findByType", query = "FROM Item i WHERE i.type = :type")
+})
 public class Item extends AbstractEntity {
 
     private static final long serialVersionUID = 3266069159000216558L;

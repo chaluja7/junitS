@@ -1,5 +1,6 @@
 package cz.cvut.junit.web.wrapper.init;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import cz.cvut.junit.entity.CoolingType;
 
@@ -10,11 +11,35 @@ import java.util.List;
  */
 public class Box {
     @JsonProperty("number")
-    int number;
+    private int number;
 
     @JsonProperty("type")
-    CoolingType type;
+    private CoolingType type;
 
     @JsonProperty("shelfs")
-    List<Shelf> shelfs;
+    private List<Shelf> shelfs;
+
+    public int getNumber() {
+        return number;
+    }
+
+    public void setNumber(int number) {
+        this.number = number;
+    }
+
+    public CoolingType getType() {
+        return type;
+    }
+
+    public void setType(CoolingType type) {
+        this.type = type;
+    }
+
+    public List<Shelf> getShelfs() {
+        return shelfs;
+    }
+
+    public void setShelfs(List<Shelf> shelfs) {
+        this.shelfs = shelfs;
+    }
 }

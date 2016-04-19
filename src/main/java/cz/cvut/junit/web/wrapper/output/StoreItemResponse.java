@@ -10,4 +10,12 @@ import java.util.List;
 public class StoreItemResponse {
     @JsonProperty("item-place")
     List<ItemLocation> itemPlace;
+
+    public List<ItemLocation> getItemPlace() {
+        return itemPlace;
+    }
+
+    public void setItemPlace(List<ItemLocation> itemPlace) {
+        this.itemPlace = itemPlace;
+    }
 }
