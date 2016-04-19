@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import cz.cvut.junit.web.wrapper.init.WarehouseInit;
+import org.joda.time.format.DateTimeFormat;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -53,5 +54,9 @@ public class Util {
     public static String createJsonFromObject(Object o) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.writeValueAsString(o);
+    }
+
+    public static String getDateTimeCsFormat(){
+        return "dd.MM.yyyy";
     }
 }
