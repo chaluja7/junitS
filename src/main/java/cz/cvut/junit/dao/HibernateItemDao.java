@@ -32,15 +32,21 @@ public class HibernateItemDao extends AbstractGenericHibernateDao<Item> {
     }
 
     public List getItemsPlaces(List<Item> items) {
-        List<Long> itemIds = new ArrayList<>();
-        for(Item i:items){
-            itemIds.add(i.getId());
+        StringBuilder inStatementSb = new StringBuilder();
+
+        if (items.size() > 0) {
+            inStatementSb.append(items.get(0).getId());
+            for (int i = 1; i < items.size(); i++) {
+                inStatementSb.append(", " + items.get(i).getId());
+            }
+            String sql = "SELECT itemshelfs.count, shelfs.shelfnumber,boxes.boxnumber FROM itemshelfs " +
+                    "JOIN shelfs ON itemshelfs.shelfid = shelfs.id " +
+                    "JOIN boxes  ON shelfs.boxid = boxes.id " +
+                    "WHERE itemshelfs.itemid IN (" + inStatementSb + ")";
+            return sessionFactory.getCurrentSession().createSQLQuery(sql).list();
+        } else {
+            return new ArrayList<>();
         }
-        String sql = "SELECT itemshelfs.count, shelfs.shelfnumber,boxes.boxnumber FROM itemshelfs " +
-                "JOIN itemshelfs.shelfid = shelfs.id ON shelfs " +
-                "JOIN shelfs.boxid = boxes.id ON boxes " +
-                "WHERE itemshelfs.itemid IN (:ids)";
-        return sessionFactory.getCurrentSession().createSQLQuery(sql).setParameterList("ids", itemIds).list();
     }
 
     public List<ItemPlaceWithExpiration> getItemsByTypes(String meatType, String coolingType) {

@@ -58,6 +58,10 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 
     @Test
     public void testEjectionItems() throws Exception {
+        String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/expired_test_data.json").getFile()));
+        warehouseManageService.putItemInStock(s);
+        String ss = warehouseManageService.ejectionItems();
+        System.out.println(ss);
 
     }
 

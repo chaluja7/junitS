@@ -1,5 +1,6 @@
 package cz.cvut.junit.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import cz.cvut.junit.entity.CoolingType;
 import cz.cvut.junit.entity.Item;
 import cz.cvut.junit.entity.ItemShelfConnection;
@@ -186,8 +187,24 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Transactional
     public String ejectionItems() {
         List<Item> itemsToDelete = itemService.findExpiredItems();
-        List itemPlaces = itemService.getItemsPlaces(itemsToDelete);
         itemService.deleteItems(itemsToDelete);
+        List<Object[]> list = itemService.getItemsPlaces(itemsToDelete);
+        List<ItemPlace> itemPlaceExpiredList = new ArrayList<>();
+        for(Object[] o:list){
+            ItemPlace ItemPlace = new ItemPlace();
+            ItemPlace.setCount((int) o[0]);
+            ItemPlace.setShelfNumber((String) o[1]);
+            ItemPlace.setBoxNumber(((BigInteger) o[2]).longValue());
+            itemPlaceExpiredList.add(ItemPlace);
+        }
+        ItemPlacesResponse<ItemPlace> response = new ItemPlacesResponse<>();
+        response.setItemPlace(itemPlaceExpiredList);
+
+        try {
+            return Util.createJsonFromObject(response);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 

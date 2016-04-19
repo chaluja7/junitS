@@ -14,7 +14,7 @@ import java.util.Set;
 @Table(name = "items")
 @NamedQueries({
     @NamedQuery(name = "Item.findByType", query = "FROM Item i WHERE i.type = :type"),
-    @NamedQuery(name = "Item.findExpiredItems", query = "FROM Item i WHERE i.expirationDate = :date")
+    @NamedQuery(name = "Item.findExpiredItems", query = "FROM Item i WHERE i.expirationDate <= :date")
 
 })
 public class Item extends AbstractEntity {
