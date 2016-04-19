@@ -1,0 +1,4127 @@
+{
+	"company": 
+	{
+		"name": "Maso Slany s.r.o.",
+		"founding-date": "21/11/2007",
+		"director": 
+		{
+			"name": "Karel",
+			"surname": "Vomacka",
+			"email": "karel.vomacka@maso-slany.cz",
+			"phone": "+420 739 549 278"
+		},
+
+		"employees": 
+		{
+			"dealers": 
+			[
+				{
+					"name": "Karel",
+					"surname": "Vomacka",
+					"email": "karel.vomacka@maso-slany.cz",
+					"phone": "+420 739 549 278"
+				}
+			],
+
+			"cleaning-mans": 
+			[
+				{
+					"name": "Romana",
+					"surname": "Vomackova",
+					"phone": "+420 733 652 212"
+				}
+			],
+
+			"warehousemans": 
+			[
+				{
+					"name": "Pavel",
+					"surname": "Erben",
+					"email": "pavel.erben@maso-slany.cz",
+					"phone": "+420 739 549 281"
+				},
+
+				{
+					"name": "Marcel",
+					"surname": "Novak",
+					"email": "marcel.novak@maso-slany.cz",
+					"phone": "+420 739 549 285"
+				},
+
+				{
+					"name": "Jan",
+					"surname": "Hruby",
+					"email": "jan.hruby@maso-slany.cz",
+					"phone": "+420 739 549 282"
+				}
+			]
+		}
+	},
+
+	"warehouse": 
+	{
+		"serial-number": "NR-SLANY-920349",
+		"cooling-boxes": 
+		[
+			{
+				"number": "58",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "k11",
+						"capacity": 169
+					},
+
+					{
+						"number": "m15",
+						"capacity": 250
+					},
+
+					{
+						"number": "j8",
+						"capacity": 152
+					},
+
+					{
+						"number": "e17",
+						"capacity": 244
+					},
+
+					{
+						"number": "k13",
+						"capacity": 202
+					},
+
+					{
+						"number": "z20",
+						"capacity": 288
+					},
+
+					{
+						"number": "x6",
+						"capacity": 45
+					},
+
+					{
+						"number": "r16",
+						"capacity": 162
+					},
+
+					{
+						"number": "g18",
+						"capacity": 102
+					},
+
+					{
+						"number": "f19",
+						"capacity": 134
+					},
+
+					{
+						"number": "b17",
+						"capacity": 216
+					},
+
+					{
+						"number": "d20",
+						"capacity": 205
+					},
+
+					{
+						"number": "j20",
+						"capacity": 278
+					},
+
+					{
+						"number": "s8",
+						"capacity": 125
+					},
+
+					{
+						"number": "n27",
+						"capacity": 77
+					},
+
+					{
+						"number": "f2",
+						"capacity": 163
+					},
+
+					{
+						"number": "y16",
+						"capacity": 212
+					},
+
+					{
+						"number": "f4",
+						"capacity": 140
+					},
+
+					{
+						"number": "q6",
+						"capacity": 48
+					},
+
+					{
+						"number": "u10",
+						"capacity": 66
+					},
+
+					{
+						"number": "u18",
+						"capacity": 62
+					},
+
+					{
+						"number": "w6",
+						"capacity": 212
+					},
+
+					{
+						"number": "x21",
+						"capacity": 178
+					},
+
+					{
+						"number": "x20",
+						"capacity": 289
+					},
+
+					{
+						"number": "q17",
+						"capacity": 75
+					},
+
+					{
+						"number": "i7",
+						"capacity": 278
+					},
+
+					{
+						"number": "c11",
+						"capacity": 133
+					},
+
+					{
+						"number": "b23",
+						"capacity": 80
+					},
+
+					{
+						"number": "m23",
+						"capacity": 284
+					},
+
+					{
+						"number": "x23",
+						"capacity": 143
+					}
+				]
+			},
+
+			{
+				"number": "55",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "k11",
+						"capacity": 100
+					},
+
+					{
+						"number": "g9",
+						"capacity": 154
+					},
+
+					{
+						"number": "z27",
+						"capacity": 41
+					},
+
+					{
+						"number": "q6",
+						"capacity": 123
+					},
+
+					{
+						"number": "q5",
+						"capacity": 226
+					},
+
+					{
+						"number": "q8",
+						"capacity": 265
+					},
+
+					{
+						"number": "e26",
+						"capacity": 235
+					},
+
+					{
+						"number": "u1",
+						"capacity": 122
+					},
+
+					{
+						"number": "k13",
+						"capacity": 288
+					},
+
+					{
+						"number": "v2",
+						"capacity": 158
+					},
+
+					{
+						"number": "f16",
+						"capacity": 141
+					},
+
+					{
+						"number": "y5",
+						"capacity": 272
+					},
+
+					{
+						"number": "a16",
+						"capacity": 111
+					},
+
+					{
+						"number": "x20",
+						"capacity": 68
+					},
+
+					{
+						"number": "i15",
+						"capacity": 171
+					},
+
+					{
+						"number": "p29",
+						"capacity": 96
+					},
+
+					{
+						"number": "o11",
+						"capacity": 229
+					},
+
+					{
+						"number": "s14",
+						"capacity": 217
+					},
+
+					{
+						"number": "k16",
+						"capacity": 85
+					},
+
+					{
+						"number": "i5",
+						"capacity": 38
+					},
+
+					{
+						"number": "j12",
+						"capacity": 227
+					},
+
+					{
+						"number": "b24",
+						"capacity": 216
+					},
+
+					{
+						"number": "x22",
+						"capacity": 246
+					}
+				]
+			},
+
+			{
+				"number": "18",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "n10",
+						"capacity": 79
+					},
+
+					{
+						"number": "k5",
+						"capacity": 247
+					},
+
+					{
+						"number": "n11",
+						"capacity": 170
+					},
+
+					{
+						"number": "a20",
+						"capacity": 279
+					},
+
+					{
+						"number": "u19",
+						"capacity": 52
+					},
+
+					{
+						"number": "w5",
+						"capacity": 225
+					},
+
+					{
+						"number": "g27",
+						"capacity": 228
+					},
+
+					{
+						"number": "y29",
+						"capacity": 128
+					},
+
+					{
+						"number": "r20",
+						"capacity": 275
+					},
+
+					{
+						"number": "r10",
+						"capacity": 135
+					},
+
+					{
+						"number": "u17",
+						"capacity": 235
+					},
+
+					{
+						"number": "o10",
+						"capacity": 160
+					},
+
+					{
+						"number": "s17",
+						"capacity": 81
+					},
+
+					{
+						"number": "c22",
+						"capacity": 107
+					},
+
+					{
+						"number": "l13",
+						"capacity": 162
+					},
+
+					{
+						"number": "c10",
+						"capacity": 171
+					},
+
+					{
+						"number": "g6",
+						"capacity": 127
+					},
+
+					{
+						"number": "z17",
+						"capacity": 178
+					},
+
+					{
+						"number": "s3",
+						"capacity": 291
+					},
+
+					{
+						"number": "c14",
+						"capacity": 107
+					}
+				]
+			},
+
+			{
+				"number": "33",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "t3",
+						"capacity": 123
+					},
+
+					{
+						"number": "e18",
+						"capacity": 131
+					},
+
+					{
+						"number": "p2",
+						"capacity": 135
+					},
+
+					{
+						"number": "o3",
+						"capacity": 45
+					},
+
+					{
+						"number": "z22",
+						"capacity": 66
+					},
+
+					{
+						"number": "t22",
+						"capacity": 76
+					},
+
+					{
+						"number": "v2",
+						"capacity": 262
+					},
+
+					{
+						"number": "h18",
+						"capacity": 288
+					},
+
+					{
+						"number": "h27",
+						"capacity": 30
+					},
+
+					{
+						"number": "b3",
+						"capacity": 97
+					},
+
+					{
+						"number": "r14",
+						"capacity": 245
+					},
+
+					{
+						"number": "e10",
+						"capacity": 288
+					},
+
+					{
+						"number": "o28",
+						"capacity": 135
+					},
+
+					{
+						"number": "a27",
+						"capacity": 142
+					},
+
+					{
+						"number": "q11",
+						"capacity": 141
+					},
+
+					{
+						"number": "q29",
+						"capacity": 193
+					},
+
+					{
+						"number": "g2",
+						"capacity": 69
+					},
+
+					{
+						"number": "l13",
+						"capacity": 150
+					},
+
+					{
+						"number": "r9",
+						"capacity": 49
+					},
+
+					{
+						"number": "s6",
+						"capacity": 292
+					},
+
+					{
+						"number": "n14",
+						"capacity": 190
+					},
+
+					{
+						"number": "x13",
+						"capacity": 129
+					},
+
+					{
+						"number": "s11",
+						"capacity": 280
+					}
+				]
+			},
+
+			{
+				"number": "82",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "n20",
+						"capacity": 170
+					},
+
+					{
+						"number": "j28",
+						"capacity": 265
+					},
+
+					{
+						"number": "j19",
+						"capacity": 284
+					},
+
+					{
+						"number": "e16",
+						"capacity": 201
+					},
+
+					{
+						"number": "t13",
+						"capacity": 148
+					},
+
+					{
+						"number": "l28",
+						"capacity": 276
+					},
+
+					{
+						"number": "o8",
+						"capacity": 219
+					},
+
+					{
+						"number": "o7",
+						"capacity": 81
+					},
+
+					{
+						"number": "g18",
+						"capacity": 40
+					},
+
+					{
+						"number": "w5",
+						"capacity": 115
+					},
+
+					{
+						"number": "f13",
+						"capacity": 206
+					},
+
+					{
+						"number": "i19",
+						"capacity": 89
+					},
+
+					{
+						"number": "k2",
+						"capacity": 206
+					},
+
+					{
+						"number": "d1",
+						"capacity": 35
+					},
+
+					{
+						"number": "b17",
+						"capacity": 161
+					},
+
+					{
+						"number": "d23",
+						"capacity": 238
+					},
+
+					{
+						"number": "a21",
+						"capacity": 251
+					},
+
+					{
+						"number": "p23",
+						"capacity": 152
+					},
+
+					{
+						"number": "s23",
+						"capacity": 30
+					},
+
+					{
+						"number": "m12",
+						"capacity": 117
+					},
+
+					{
+						"number": "u9",
+						"capacity": 46
+					}
+				]
+			},
+
+			{
+				"number": "80",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "t20",
+						"capacity": 143
+					},
+
+					{
+						"number": "t1",
+						"capacity": 257
+					},
+
+					{
+						"number": "u21",
+						"capacity": 229
+					},
+
+					{
+						"number": "m14",
+						"capacity": 129
+					},
+
+					{
+						"number": "r16",
+						"capacity": 254
+					},
+
+					{
+						"number": "x7",
+						"capacity": 135
+					},
+
+					{
+						"number": "b9",
+						"capacity": 279
+					},
+
+					{
+						"number": "d25",
+						"capacity": 277
+					},
+
+					{
+						"number": "c28",
+						"capacity": 247
+					},
+
+					{
+						"number": "k16",
+						"capacity": 104
+					},
+
+					{
+						"number": "a7",
+						"capacity": 180
+					},
+
+					{
+						"number": "q5",
+						"capacity": 212
+					},
+
+					{
+						"number": "k22",
+						"capacity": 222
+					},
+
+					{
+						"number": "k6",
+						"capacity": 262
+					},
+
+					{
+						"number": "e27",
+						"capacity": 263
+					},
+
+					{
+						"number": "y5",
+						"capacity": 298
+					},
+
+					{
+						"number": "r23",
+						"capacity": 173
+					},
+
+					{
+						"number": "g24",
+						"capacity": 86
+					},
+
+					{
+						"number": "p18",
+						"capacity": 297
+					},
+
+					{
+						"number": "s17",
+						"capacity": 267
+					},
+
+					{
+						"number": "v27",
+						"capacity": 133
+					},
+
+					{
+						"number": "b21",
+						"capacity": 204
+					},
+
+					{
+						"number": "k29",
+						"capacity": 90
+					},
+
+					{
+						"number": "n19",
+						"capacity": 93
+					},
+
+					{
+						"number": "r1",
+						"capacity": 210
+					},
+
+					{
+						"number": "s11",
+						"capacity": 209
+					},
+
+					{
+						"number": "r5",
+						"capacity": 273
+					}
+				]
+			},
+
+			{
+				"number": "63",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "z14",
+						"capacity": 248
+					},
+
+					{
+						"number": "e19",
+						"capacity": 227
+					},
+
+					{
+						"number": "s1",
+						"capacity": 62
+					},
+
+					{
+						"number": "h8",
+						"capacity": 191
+					},
+
+					{
+						"number": "v4",
+						"capacity": 68
+					},
+
+					{
+						"number": "n3",
+						"capacity": 173
+					},
+
+					{
+						"number": "t28",
+						"capacity": 71
+					},
+
+					{
+						"number": "l2",
+						"capacity": 254
+					},
+
+					{
+						"number": "r10",
+						"capacity": 149
+					},
+
+					{
+						"number": "q11",
+						"capacity": 209
+					},
+
+					{
+						"number": "o10",
+						"capacity": 112
+					},
+
+					{
+						"number": "o20",
+						"capacity": 116
+					},
+
+					{
+						"number": "v25",
+						"capacity": 76
+					},
+
+					{
+						"number": "k19",
+						"capacity": 144
+					},
+
+					{
+						"number": "k29",
+						"capacity": 91
+					},
+
+					{
+						"number": "s7",
+						"capacity": 42
+					},
+
+					{
+						"number": "x17",
+						"capacity": 265
+					},
+
+					{
+						"number": "b25",
+						"capacity": 33
+					},
+
+					{
+						"number": "s10",
+						"capacity": 149
+					},
+
+					{
+						"number": "u9",
+						"capacity": 108
+					}
+				]
+			},
+
+			{
+				"number": "81",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "h12",
+						"capacity": 160
+					},
+
+					{
+						"number": "u23",
+						"capacity": 260
+					},
+
+					{
+						"number": "e17",
+						"capacity": 217
+					},
+
+					{
+						"number": "o3",
+						"capacity": 173
+					},
+
+					{
+						"number": "f10",
+						"capacity": 110
+					},
+
+					{
+						"number": "p1",
+						"capacity": 230
+					},
+
+					{
+						"number": "o23",
+						"capacity": 246
+					},
+
+					{
+						"number": "y5",
+						"capacity": 298
+					},
+
+					{
+						"number": "y8",
+						"capacity": 275
+					},
+
+					{
+						"number": "o16",
+						"capacity": 163
+					},
+
+					{
+						"number": "q14",
+						"capacity": 165
+					},
+
+					{
+						"number": "v14",
+						"capacity": 252
+					},
+
+					{
+						"number": "j23",
+						"capacity": 264
+					},
+
+					{
+						"number": "u8",
+						"capacity": 149
+					},
+
+					{
+						"number": "g1",
+						"capacity": 43
+					},
+
+					{
+						"number": "y24",
+						"capacity": 184
+					},
+
+					{
+						"number": "x28",
+						"capacity": 49
+					},
+
+					{
+						"number": "u5",
+						"capacity": 46
+					},
+
+					{
+						"number": "u6",
+						"capacity": 289
+					},
+
+					{
+						"number": "j26",
+						"capacity": 229
+					},
+
+					{
+						"number": "r4",
+						"capacity": 135
+					},
+
+					{
+						"number": "j15",
+						"capacity": 71
+					},
+
+					{
+						"number": "n15",
+						"capacity": 147
+					},
+
+					{
+						"number": "r5",
+						"capacity": 96
+					},
+
+					{
+						"number": "i1",
+						"capacity": 265
+					}
+				]
+			},
+
+			{
+				"number": "87",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "u21",
+						"capacity": 162
+					},
+
+					{
+						"number": "w17",
+						"capacity": 30
+					},
+
+					{
+						"number": "f16",
+						"capacity": 189
+					},
+
+					{
+						"number": "o23",
+						"capacity": 240
+					},
+
+					{
+						"number": "z5",
+						"capacity": 64
+					},
+
+					{
+						"number": "u29",
+						"capacity": 159
+					},
+
+					{
+						"number": "x3",
+						"capacity": 113
+					},
+
+					{
+						"number": "b6",
+						"capacity": 130
+					},
+
+					{
+						"number": "a12",
+						"capacity": 251
+					},
+
+					{
+						"number": "w8",
+						"capacity": 104
+					},
+
+					{
+						"number": "o22",
+						"capacity": 249
+					},
+
+					{
+						"number": "u8",
+						"capacity": 204
+					},
+
+					{
+						"number": "j23",
+						"capacity": 178
+					},
+
+					{
+						"number": "h1",
+						"capacity": 286
+					},
+
+					{
+						"number": "k22",
+						"capacity": 101
+					},
+
+					{
+						"number": "l26",
+						"capacity": 70
+					},
+
+					{
+						"number": "m7",
+						"capacity": 155
+					},
+
+					{
+						"number": "t14",
+						"capacity": 192
+					},
+
+					{
+						"number": "m8",
+						"capacity": 295
+					},
+
+					{
+						"number": "c6",
+						"capacity": 90
+					},
+
+					{
+						"number": "e8",
+						"capacity": 55
+					},
+
+					{
+						"number": "k1",
+						"capacity": 81
+					},
+
+					{
+						"number": "c17",
+						"capacity": 169
+					},
+
+					{
+						"number": "d10",
+						"capacity": 63
+					},
+
+					{
+						"number": "v8",
+						"capacity": 183
+					},
+
+					{
+						"number": "t6",
+						"capacity": 293
+					},
+
+					{
+						"number": "x25",
+						"capacity": 123
+					}
+				]
+			},
+
+			{
+				"number": "85",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "u11",
+						"capacity": 184
+					},
+
+					{
+						"number": "w12",
+						"capacity": 140
+					},
+
+					{
+						"number": "j17",
+						"capacity": 231
+					},
+
+					{
+						"number": "e19",
+						"capacity": 134
+					},
+
+					{
+						"number": "s1",
+						"capacity": 170
+					},
+
+					{
+						"number": "h23",
+						"capacity": 171
+					},
+
+					{
+						"number": "g11",
+						"capacity": 51
+					},
+
+					{
+						"number": "u20",
+						"capacity": 229
+					},
+
+					{
+						"number": "k14",
+						"capacity": 178
+					},
+
+					{
+						"number": "w28",
+						"capacity": 164
+					},
+
+					{
+						"number": "y6",
+						"capacity": 224
+					},
+
+					{
+						"number": "c9",
+						"capacity": 293
+					},
+
+					{
+						"number": "d7",
+						"capacity": 277
+					},
+
+					{
+						"number": "g23",
+						"capacity": 293
+					},
+
+					{
+						"number": "y9",
+						"capacity": 122
+					},
+
+					{
+						"number": "p22",
+						"capacity": 155
+					},
+
+					{
+						"number": "m12",
+						"capacity": 112
+					},
+
+					{
+						"number": "x13",
+						"capacity": 264
+					},
+
+					{
+						"number": "b14",
+						"capacity": 55
+					},
+
+					{
+						"number": "m24",
+						"capacity": 258
+					}
+				]
+			},
+
+			{
+				"number": "96",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "v1",
+						"capacity": 188
+					},
+
+					{
+						"number": "v2",
+						"capacity": 94
+					},
+
+					{
+						"number": "p20",
+						"capacity": 113
+					},
+
+					{
+						"number": "r14",
+						"capacity": 59
+					},
+
+					{
+						"number": "d4",
+						"capacity": 142
+					},
+
+					{
+						"number": "q20",
+						"capacity": 53
+					},
+
+					{
+						"number": "p8",
+						"capacity": 263
+					},
+
+					{
+						"number": "c20",
+						"capacity": 137
+					},
+
+					{
+						"number": "y14",
+						"capacity": 258
+					},
+
+					{
+						"number": "n26",
+						"capacity": 149
+					},
+
+					{
+						"number": "f2",
+						"capacity": 230
+					},
+
+					{
+						"number": "c25",
+						"capacity": 237
+					},
+
+					{
+						"number": "x14",
+						"capacity": 80
+					},
+
+					{
+						"number": "c24",
+						"capacity": 236
+					},
+
+					{
+						"number": "f4",
+						"capacity": 290
+					},
+
+					{
+						"number": "q6",
+						"capacity": 200
+					},
+
+					{
+						"number": "g27",
+						"capacity": 239
+					},
+
+					{
+						"number": "o13",
+						"capacity": 110
+					},
+
+					{
+						"number": "f29",
+						"capacity": 265
+					},
+
+					{
+						"number": "h21",
+						"capacity": 91
+					},
+
+					{
+						"number": "v29",
+						"capacity": 88
+					},
+
+					{
+						"number": "e1",
+						"capacity": 35
+					},
+
+					{
+						"number": "p12",
+						"capacity": 289
+					},
+
+					{
+						"number": "j10",
+						"capacity": 107
+					},
+
+					{
+						"number": "x27",
+						"capacity": 58
+					},
+
+					{
+						"number": "d16",
+						"capacity": 276
+					},
+
+					{
+						"number": "c12",
+						"capacity": 147
+					},
+
+					{
+						"number": "x24",
+						"capacity": 33
+					},
+
+					{
+						"number": "b25",
+						"capacity": 63
+					}
+				]
+			},
+
+			{
+				"number": "68",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "h11",
+						"capacity": 132
+					},
+
+					{
+						"number": "k13",
+						"capacity": 129
+					},
+
+					{
+						"number": "b3",
+						"capacity": 280
+					},
+
+					{
+						"number": "v19",
+						"capacity": 76
+					},
+
+					{
+						"number": "i23",
+						"capacity": 94
+					},
+
+					{
+						"number": "p22",
+						"capacity": 155
+					},
+
+					{
+						"number": "d20",
+						"capacity": 244
+					},
+
+					{
+						"number": "s9",
+						"capacity": 44
+					},
+
+					{
+						"number": "c21",
+						"capacity": 244
+					},
+
+					{
+						"number": "h6",
+						"capacity": 182
+					},
+
+					{
+						"number": "h2",
+						"capacity": 290
+					},
+
+					{
+						"number": "g21",
+						"capacity": 66
+					},
+
+					{
+						"number": "k6",
+						"capacity": 79
+					},
+
+					{
+						"number": "e22",
+						"capacity": 233
+					},
+
+					{
+						"number": "o7",
+						"capacity": 202
+					},
+
+					{
+						"number": "t16",
+						"capacity": 126
+					},
+
+					{
+						"number": "u14",
+						"capacity": 255
+					},
+
+					{
+						"number": "k2",
+						"capacity": 59
+					},
+
+					{
+						"number": "d11",
+						"capacity": 241
+					},
+
+					{
+						"number": "x8",
+						"capacity": 225
+					},
+
+					{
+						"number": "c19",
+						"capacity": 269
+					},
+
+					{
+						"number": "v8",
+						"capacity": 166
+					},
+
+					{
+						"number": "v20",
+						"capacity": 154
+					},
+
+					{
+						"number": "s12",
+						"capacity": 138
+					},
+
+					{
+						"number": "i7",
+						"capacity": 147
+					},
+
+					{
+						"number": "c12",
+						"capacity": 260
+					},
+
+					{
+						"number": "d17",
+						"capacity": 220
+					}
+				]
+			},
+
+			{
+				"number": "47",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "t3",
+						"capacity": 265
+					},
+
+					{
+						"number": "t2",
+						"capacity": 183
+					},
+
+					{
+						"number": "l8",
+						"capacity": 275
+					},
+
+					{
+						"number": "m19",
+						"capacity": 202
+					},
+
+					{
+						"number": "t28",
+						"capacity": 264
+					},
+
+					{
+						"number": "x6",
+						"capacity": 297
+					},
+
+					{
+						"number": "o26",
+						"capacity": 46
+					},
+
+					{
+						"number": "o28",
+						"capacity": 56
+					},
+
+					{
+						"number": "b6",
+						"capacity": 116
+					},
+
+					{
+						"number": "r11",
+						"capacity": 54
+					},
+
+					{
+						"number": "z7",
+						"capacity": 121
+					},
+
+					{
+						"number": "v19",
+						"capacity": 93
+					},
+
+					{
+						"number": "a14",
+						"capacity": 162
+					},
+
+					{
+						"number": "v16",
+						"capacity": 70
+					},
+
+					{
+						"number": "w8",
+						"capacity": 154
+					},
+
+					{
+						"number": "s8",
+						"capacity": 124
+					},
+
+					{
+						"number": "z18",
+						"capacity": 161
+					},
+
+					{
+						"number": "n11",
+						"capacity": 120
+					},
+
+					{
+						"number": "f21",
+						"capacity": 279
+					},
+
+					{
+						"number": "o8",
+						"capacity": 198
+					},
+
+					{
+						"number": "f24",
+						"capacity": 193
+					},
+
+					{
+						"number": "o7",
+						"capacity": 265
+					},
+
+					{
+						"number": "w2",
+						"capacity": 225
+					},
+
+					{
+						"number": "e3",
+						"capacity": 189
+					},
+
+					{
+						"number": "k27",
+						"capacity": 79
+					},
+
+					{
+						"number": "l22",
+						"capacity": 90
+					},
+
+					{
+						"number": "s10",
+						"capacity": 280
+					}
+				]
+			},
+
+			{
+				"number": "26",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "n1",
+						"capacity": 137
+					},
+
+					{
+						"number": "v1",
+						"capacity": 209
+					},
+
+					{
+						"number": "n21",
+						"capacity": 108
+					},
+
+					{
+						"number": "t1",
+						"capacity": 252
+					},
+
+					{
+						"number": "k13",
+						"capacity": 268
+					},
+
+					{
+						"number": "n7",
+						"capacity": 95
+					},
+
+					{
+						"number": "g19",
+						"capacity": 218
+					},
+
+					{
+						"number": "d5",
+						"capacity": 271
+					},
+
+					{
+						"number": "u26",
+						"capacity": 160
+					},
+
+					{
+						"number": "b19",
+						"capacity": 198
+					},
+
+					{
+						"number": "d25",
+						"capacity": 43
+					},
+
+					{
+						"number": "q22",
+						"capacity": 173
+					},
+
+					{
+						"number": "d20",
+						"capacity": 73
+					},
+
+					{
+						"number": "a2",
+						"capacity": 155
+					},
+
+					{
+						"number": "u5",
+						"capacity": 80
+					},
+
+					{
+						"number": "h6",
+						"capacity": 188
+					},
+
+					{
+						"number": "y17",
+						"capacity": 254
+					},
+
+					{
+						"number": "g7",
+						"capacity": 192
+					},
+
+					{
+						"number": "m6",
+						"capacity": 176
+					},
+
+					{
+						"number": "m7",
+						"capacity": 79
+					},
+
+					{
+						"number": "r24",
+						"capacity": 51
+					},
+
+					{
+						"number": "o13",
+						"capacity": 37
+					},
+
+					{
+						"number": "r20",
+						"capacity": 111
+					},
+
+					{
+						"number": "g24",
+						"capacity": 200
+					},
+
+					{
+						"number": "x20",
+						"capacity": 89
+					},
+
+					{
+						"number": "v21",
+						"capacity": 169
+					},
+
+					{
+						"number": "c10",
+						"capacity": 195
+					},
+
+					{
+						"number": "d16",
+						"capacity": 152
+					},
+
+					{
+						"number": "i4",
+						"capacity": 120
+					},
+
+					{
+						"number": "j15",
+						"capacity": 67
+					}
+				]
+			},
+
+			{
+				"number": "28",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "v5",
+						"capacity": 49
+					},
+
+					{
+						"number": "w19",
+						"capacity": 250
+					},
+
+					{
+						"number": "h18",
+						"capacity": 63
+					},
+
+					{
+						"number": "d25",
+						"capacity": 188
+					},
+
+					{
+						"number": "a16",
+						"capacity": 163
+					},
+
+					{
+						"number": "v18",
+						"capacity": 230
+					},
+
+					{
+						"number": "l14",
+						"capacity": 112
+					},
+
+					{
+						"number": "k16",
+						"capacity": 213
+					},
+
+					{
+						"number": "a3",
+						"capacity": 127
+					},
+
+					{
+						"number": "y13",
+						"capacity": 291
+					},
+
+					{
+						"number": "s8",
+						"capacity": 92
+					},
+
+					{
+						"number": "n26",
+						"capacity": 264
+					},
+
+					{
+						"number": "a6",
+						"capacity": 210
+					},
+
+					{
+						"number": "d27",
+						"capacity": 222
+					},
+
+					{
+						"number": "m11",
+						"capacity": 197
+					},
+
+					{
+						"number": "m9",
+						"capacity": 230
+					},
+
+					{
+						"number": "j17",
+						"capacity": 127
+					},
+
+					{
+						"number": "z16",
+						"capacity": 136
+					},
+
+					{
+						"number": "y18",
+						"capacity": 119
+					},
+
+					{
+						"number": "x19",
+						"capacity": 294
+					},
+
+					{
+						"number": "c3",
+						"capacity": 225
+					},
+
+					{
+						"number": "e9",
+						"capacity": 34
+					},
+
+					{
+						"number": "w22",
+						"capacity": 186
+					},
+
+					{
+						"number": "e1",
+						"capacity": 150
+					},
+
+					{
+						"number": "q11",
+						"capacity": 55
+					},
+
+					{
+						"number": "v8",
+						"capacity": 284
+					},
+
+					{
+						"number": "n13",
+						"capacity": 270
+					},
+
+					{
+						"number": "r3",
+						"capacity": 80
+					},
+
+					{
+						"number": "i2",
+						"capacity": 54
+					},
+
+					{
+						"number": "j15",
+						"capacity": 245
+					},
+
+					{
+						"number": "s11",
+						"capacity": 178
+					},
+
+					{
+						"number": "x22",
+						"capacity": 105
+					},
+
+					{
+						"number": "i1",
+						"capacity": 142
+					}
+				]
+			},
+
+			{
+				"number": "3",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "n1",
+						"capacity": 230
+					},
+
+					{
+						"number": "m26",
+						"capacity": 263
+					},
+
+					{
+						"number": "y19",
+						"capacity": 270
+					},
+
+					{
+						"number": "q8",
+						"capacity": 288
+					},
+
+					{
+						"number": "e28",
+						"capacity": 193
+					},
+
+					{
+						"number": "z20",
+						"capacity": 252
+					},
+
+					{
+						"number": "j7",
+						"capacity": 138
+					},
+
+					{
+						"number": "d5",
+						"capacity": 62
+					},
+
+					{
+						"number": "o18",
+						"capacity": 210
+					},
+
+					{
+						"number": "h21",
+						"capacity": 176
+					},
+
+					{
+						"number": "b9",
+						"capacity": 142
+					},
+
+					{
+						"number": "x21",
+						"capacity": 211
+					},
+
+					{
+						"number": "b17",
+						"capacity": 122
+					},
+
+					{
+						"number": "q16",
+						"capacity": 293
+					},
+
+					{
+						"number": "p14",
+						"capacity": 166
+					},
+
+					{
+						"number": "d20",
+						"capacity": 272
+					},
+
+					{
+						"number": "p11",
+						"capacity": 224
+					},
+
+					{
+						"number": "s12",
+						"capacity": 192
+					},
+
+					{
+						"number": "s26",
+						"capacity": 81
+					},
+
+					{
+						"number": "h6",
+						"capacity": 254
+					},
+
+					{
+						"number": "l11",
+						"capacity": 162
+					},
+
+					{
+						"number": "s8",
+						"capacity": 290
+					},
+
+					{
+						"number": "r3",
+						"capacity": 63
+					},
+
+					{
+						"number": "y26",
+						"capacity": 165
+					}
+				]
+			},
+
+			{
+				"number": "1",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "v1",
+						"capacity": 136
+					},
+
+					{
+						"number": "t21",
+						"capacity": 120
+					},
+
+					{
+						"number": "q2",
+						"capacity": 146
+					},
+
+					{
+						"number": "l18",
+						"capacity": 69
+					},
+
+					{
+						"number": "t23",
+						"capacity": 194
+					},
+
+					{
+						"number": "z2",
+						"capacity": 209
+					},
+
+					{
+						"number": "r14",
+						"capacity": 118
+					},
+
+					{
+						"number": "g19",
+						"capacity": 265
+					},
+
+					{
+						"number": "u29",
+						"capacity": 95
+					},
+
+					{
+						"number": "o19",
+						"capacity": 36
+					},
+
+					{
+						"number": "c9",
+						"capacity": 270
+					},
+
+					{
+						"number": "k1",
+						"capacity": 61
+					},
+
+					{
+						"number": "g15",
+						"capacity": 43
+					},
+
+					{
+						"number": "b8",
+						"capacity": 40
+					},
+
+					{
+						"number": "a14",
+						"capacity": 291
+					},
+
+					{
+						"number": "i17",
+						"capacity": 237
+					},
+
+					{
+						"number": "p14",
+						"capacity": 130
+					},
+
+					{
+						"number": "v6",
+						"capacity": 262
+					},
+
+					{
+						"number": "t4",
+						"capacity": 112
+					},
+
+					{
+						"number": "n28",
+						"capacity": 70
+					},
+
+					{
+						"number": "l24",
+						"capacity": 47
+					},
+
+					{
+						"number": "x25",
+						"capacity": 227
+					}
+				]
+			},
+
+			{
+				"number": "7",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "n1",
+						"capacity": 266
+					},
+
+					{
+						"number": "z27",
+						"capacity": 67
+					},
+
+					{
+						"number": "t2",
+						"capacity": 175
+					},
+
+					{
+						"number": "g10",
+						"capacity": 176
+					},
+
+					{
+						"number": "p2",
+						"capacity": 231
+					},
+
+					{
+						"number": "t25",
+						"capacity": 255
+					},
+
+					{
+						"number": "t29",
+						"capacity": 81
+					},
+
+					{
+						"number": "z5",
+						"capacity": 79
+					},
+
+					{
+						"number": "i29",
+						"capacity": 268
+					},
+
+					{
+						"number": "a12",
+						"capacity": 274
+					},
+
+					{
+						"number": "p23",
+						"capacity": 45
+					},
+
+					{
+						"number": "b10",
+						"capacity": 141
+					},
+
+					{
+						"number": "x11",
+						"capacity": 36
+					},
+
+					{
+						"number": "m11",
+						"capacity": 134
+					},
+
+					{
+						"number": "g8",
+						"capacity": 62
+					},
+
+					{
+						"number": "l28",
+						"capacity": 91
+					},
+
+					{
+						"number": "c6",
+						"capacity": 171
+					},
+
+					{
+						"number": "y3",
+						"capacity": 43
+					},
+
+					{
+						"number": "o18",
+						"capacity": 186
+					},
+
+					{
+						"number": "c9",
+						"capacity": 289
+					},
+
+					{
+						"number": "u17",
+						"capacity": 127
+					},
+
+					{
+						"number": "k2",
+						"capacity": 149
+					},
+
+					{
+						"number": "q15",
+						"capacity": 111
+					},
+
+					{
+						"number": "s13",
+						"capacity": 33
+					},
+
+					{
+						"number": "b21",
+						"capacity": 51
+					},
+
+					{
+						"number": "i4",
+						"capacity": 286
+					},
+
+					{
+						"number": "d17",
+						"capacity": 268
+					}
+				]
+			},
+
+			{
+				"number": "30",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "n1",
+						"capacity": 186
+					},
+
+					{
+						"number": "n23",
+						"capacity": 226
+					},
+
+					{
+						"number": "n20",
+						"capacity": 212
+					},
+
+					{
+						"number": "m14",
+						"capacity": 189
+					},
+
+					{
+						"number": "e17",
+						"capacity": 191
+					},
+
+					{
+						"number": "n4",
+						"capacity": 261
+					},
+
+					{
+						"number": "e16",
+						"capacity": 165
+					},
+
+					{
+						"number": "g19",
+						"capacity": 86
+					},
+
+					{
+						"number": "i27",
+						"capacity": 35
+					},
+
+					{
+						"number": "b17",
+						"capacity": 246
+					},
+
+					{
+						"number": "a10",
+						"capacity": 58
+					},
+
+					{
+						"number": "x16",
+						"capacity": 244
+					},
+
+					{
+						"number": "j27",
+						"capacity": 100
+					},
+
+					{
+						"number": "n24",
+						"capacity": 256
+					},
+
+					{
+						"number": "m11",
+						"capacity": 52
+					},
+
+					{
+						"number": "n10",
+						"capacity": 105
+					},
+
+					{
+						"number": "m28",
+						"capacity": 94
+					},
+
+					{
+						"number": "y18",
+						"capacity": 164
+					},
+
+					{
+						"number": "k23",
+						"capacity": 223
+					},
+
+					{
+						"number": "f23",
+						"capacity": 259
+					},
+
+					{
+						"number": "l29",
+						"capacity": 111
+					},
+
+					{
+						"number": "h27",
+						"capacity": 274
+					},
+
+					{
+						"number": "e22",
+						"capacity": 262
+					},
+
+					{
+						"number": "c5",
+						"capacity": 156
+					},
+
+					{
+						"number": "o12",
+						"capacity": 280
+					},
+
+					{
+						"number": "m4",
+						"capacity": 82
+					},
+
+					{
+						"number": "e7",
+						"capacity": 220
+					},
+
+					{
+						"number": "y7",
+						"capacity": 94
+					},
+
+					{
+						"number": "c16",
+						"capacity": 216
+					},
+
+					{
+						"number": "x28",
+						"capacity": 208
+					},
+
+					{
+						"number": "t7",
+						"capacity": 210
+					},
+
+					{
+						"number": "n14",
+						"capacity": 248
+					},
+
+					{
+						"number": "l20",
+						"capacity": 62
+					}
+				]
+			},
+
+			{
+				"number": "32",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "k4",
+						"capacity": 72
+					},
+
+					{
+						"number": "y19",
+						"capacity": 154
+					},
+
+					{
+						"number": "m15",
+						"capacity": 297
+					},
+
+					{
+						"number": "h13",
+						"capacity": 41
+					},
+
+					{
+						"number": "e25",
+						"capacity": 117
+					},
+
+					{
+						"number": "x19",
+						"capacity": 259
+					},
+
+					{
+						"number": "t23",
+						"capacity": 44
+					},
+
+					{
+						"number": "l29",
+						"capacity": 269
+					},
+
+					{
+						"number": "n8",
+						"capacity": 286
+					},
+
+					{
+						"number": "l3",
+						"capacity": 235
+					},
+
+					{
+						"number": "f27",
+						"capacity": 161
+					},
+
+					{
+						"number": "l1",
+						"capacity": 252
+					},
+
+					{
+						"number": "f19",
+						"capacity": 242
+					},
+
+					{
+						"number": "p13",
+						"capacity": 104
+					},
+
+					{
+						"number": "s28",
+						"capacity": 34
+					},
+
+					{
+						"number": "x16",
+						"capacity": 96
+					},
+
+					{
+						"number": "v21",
+						"capacity": 170
+					},
+
+					{
+						"number": "k29",
+						"capacity": 118
+					},
+
+					{
+						"number": "u6",
+						"capacity": 257
+					},
+
+					{
+						"number": "h3",
+						"capacity": 78
+					},
+
+					{
+						"number": "s4",
+						"capacity": 133
+					},
+
+					{
+						"number": "f4",
+						"capacity": 208
+					}
+				]
+			},
+
+			{
+				"number": "5",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "z15",
+						"capacity": 125
+					},
+
+					{
+						"number": "z23",
+						"capacity": 65
+					},
+
+					{
+						"number": "v2",
+						"capacity": 169
+					},
+
+					{
+						"number": "q3",
+						"capacity": 214
+					},
+
+					{
+						"number": "f25",
+						"capacity": 198
+					},
+
+					{
+						"number": "o14",
+						"capacity": 81
+					},
+
+					{
+						"number": "r26",
+						"capacity": 217
+					},
+
+					{
+						"number": "u26",
+						"capacity": 164
+					},
+
+					{
+						"number": "z7",
+						"capacity": 260
+					},
+
+					{
+						"number": "h10",
+						"capacity": 197
+					},
+
+					{
+						"number": "d3",
+						"capacity": 272
+					},
+
+					{
+						"number": "a11",
+						"capacity": 122
+					},
+
+					{
+						"number": "q15",
+						"capacity": 125
+					},
+
+					{
+						"number": "s25",
+						"capacity": 120
+					},
+
+					{
+						"number": "b21",
+						"capacity": 195
+					},
+
+					{
+						"number": "s13",
+						"capacity": 242
+					},
+
+					{
+						"number": "t6",
+						"capacity": 82
+					},
+
+					{
+						"number": "s22",
+						"capacity": 201
+					},
+
+					{
+						"number": "m10",
+						"capacity": 119
+					},
+
+					{
+						"number": "j16",
+						"capacity": 192
+					},
+
+					{
+						"number": "x22",
+						"capacity": 121
+					},
+
+					{
+						"number": "y26",
+						"capacity": 218
+					}
+				]
+			},
+
+			{
+				"number": "52",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "n23",
+						"capacity": 66
+					},
+
+					{
+						"number": "k11",
+						"capacity": 234
+					},
+
+					{
+						"number": "m15",
+						"capacity": 226
+					},
+
+					{
+						"number": "v4",
+						"capacity": 181
+					},
+
+					{
+						"number": "f11",
+						"capacity": 83
+					},
+
+					{
+						"number": "l2",
+						"capacity": 277
+					},
+
+					{
+						"number": "o26",
+						"capacity": 281
+					},
+
+					{
+						"number": "g18",
+						"capacity": 46
+					},
+
+					{
+						"number": "x5",
+						"capacity": 186
+					},
+
+					{
+						"number": "l1",
+						"capacity": 279
+					},
+
+					{
+						"number": "g12",
+						"capacity": 287
+					},
+
+					{
+						"number": "y9",
+						"capacity": 240
+					},
+
+					{
+						"number": "i22",
+						"capacity": 220
+					},
+
+					{
+						"number": "k20",
+						"capacity": 146
+					},
+
+					{
+						"number": "m27",
+						"capacity": 272
+					},
+
+					{
+						"number": "k23",
+						"capacity": 143
+					},
+
+					{
+						"number": "o3",
+						"capacity": 90
+					},
+
+					{
+						"number": "w29",
+						"capacity": 102
+					},
+
+					{
+						"number": "w27",
+						"capacity": 232
+					},
+
+					{
+						"number": "h27",
+						"capacity": 240
+					},
+
+					{
+						"number": "o8",
+						"capacity": 110
+					},
+
+					{
+						"number": "g28",
+						"capacity": 119
+					},
+
+					{
+						"number": "e8",
+						"capacity": 262
+					},
+
+					{
+						"number": "c9",
+						"capacity": 242
+					},
+
+					{
+						"number": "y7",
+						"capacity": 70
+					},
+
+					{
+						"number": "o17",
+						"capacity": 238
+					},
+
+					{
+						"number": "b29",
+						"capacity": 215
+					},
+
+					{
+						"number": "a26",
+						"capacity": 223
+					},
+
+					{
+						"number": "v8",
+						"capacity": 30
+					},
+
+					{
+						"number": "m23",
+						"capacity": 85
+					}
+				]
+			},
+
+			{
+				"number": "9",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "m26",
+						"capacity": 245
+					},
+
+					{
+						"number": "h29",
+						"capacity": 122
+					},
+
+					{
+						"number": "m18",
+						"capacity": 141
+					},
+
+					{
+						"number": "z3",
+						"capacity": 264
+					},
+
+					{
+						"number": "u29",
+						"capacity": 269
+					},
+
+					{
+						"number": "q9",
+						"capacity": 36
+					},
+
+					{
+						"number": "z7",
+						"capacity": 40
+					},
+
+					{
+						"number": "p18",
+						"capacity": 268
+					},
+
+					{
+						"number": "b17",
+						"capacity": 130
+					},
+
+					{
+						"number": "q28",
+						"capacity": 198
+					},
+
+					{
+						"number": "z28",
+						"capacity": 243
+					},
+
+					{
+						"number": "n28",
+						"capacity": 201
+					},
+
+					{
+						"number": "v23",
+						"capacity": 115
+					},
+
+					{
+						"number": "y13",
+						"capacity": 81
+					},
+
+					{
+						"number": "r2",
+						"capacity": 63
+					},
+
+					{
+						"number": "d16",
+						"capacity": 158
+					},
+
+					{
+						"number": "m10",
+						"capacity": 105
+					},
+
+					{
+						"number": "g4",
+						"capacity": 132
+					},
+
+					{
+						"number": "d18",
+						"capacity": 94
+					},
+
+					{
+						"number": "h3",
+						"capacity": 112
+					},
+
+					{
+						"number": "l21",
+						"capacity": 174
+					}
+				]
+			},
+
+			{
+				"number": "71",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "u23",
+						"capacity": 184
+					},
+
+					{
+						"number": "m16",
+						"capacity": 155
+					},
+
+					{
+						"number": "t10",
+						"capacity": 59
+					},
+
+					{
+						"number": "w14",
+						"capacity": 103
+					},
+
+					{
+						"number": "u20",
+						"capacity": 113
+					},
+
+					{
+						"number": "u2",
+						"capacity": 42
+					},
+
+					{
+						"number": "n3",
+						"capacity": 48
+					},
+
+					{
+						"number": "y1",
+						"capacity": 62
+					},
+
+					{
+						"number": "e13",
+						"capacity": 273
+					},
+
+					{
+						"number": "r24",
+						"capacity": 207
+					},
+
+					{
+						"number": "g17",
+						"capacity": 162
+					},
+
+					{
+						"number": "f14",
+						"capacity": 180
+					},
+
+					{
+						"number": "r13",
+						"capacity": 50
+					},
+
+					{
+						"number": "t27",
+						"capacity": 171
+					},
+
+					{
+						"number": "o16",
+						"capacity": 54
+					},
+
+					{
+						"number": "s17",
+						"capacity": 139
+					},
+
+					{
+						"number": "s19",
+						"capacity": 103
+					},
+
+					{
+						"number": "s9",
+						"capacity": 91
+					},
+
+					{
+						"number": "n17",
+						"capacity": 110
+					},
+
+					{
+						"number": "t5",
+						"capacity": 257
+					},
+
+					{
+						"number": "n15",
+						"capacity": 34
+					},
+
+					{
+						"number": "b26",
+						"capacity": 279
+					}
+				]
+			},
+
+			{
+				"number": "54",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "j4",
+						"capacity": 160
+					},
+
+					{
+						"number": "t2",
+						"capacity": 223
+					},
+
+					{
+						"number": "h12",
+						"capacity": 181
+					},
+
+					{
+						"number": "f7",
+						"capacity": 30
+					},
+
+					{
+						"number": "j3",
+						"capacity": 141
+					},
+
+					{
+						"number": "l15",
+						"capacity": 106
+					},
+
+					{
+						"number": "f15",
+						"capacity": 136
+					},
+
+					{
+						"number": "a17",
+						"capacity": 286
+					},
+
+					{
+						"number": "q24",
+						"capacity": 112
+					},
+
+					{
+						"number": "d21",
+						"capacity": 85
+					},
+
+					{
+						"number": "i21",
+						"capacity": 249
+					},
+
+					{
+						"number": "a10",
+						"capacity": 257
+					},
+
+					{
+						"number": "b1",
+						"capacity": 128
+					},
+
+					{
+						"number": "x16",
+						"capacity": 96
+					},
+
+					{
+						"number": "v12",
+						"capacity": 161
+					},
+
+					{
+						"number": "x18",
+						"capacity": 263
+					},
+
+					{
+						"number": "j27",
+						"capacity": 262
+					},
+
+					{
+						"number": "c25",
+						"capacity": 218
+					},
+
+					{
+						"number": "g9",
+						"capacity": 147
+					},
+
+					{
+						"number": "k21",
+						"capacity": 278
+					},
+
+					{
+						"number": "f22",
+						"capacity": 74
+					},
+
+					{
+						"number": "u3",
+						"capacity": 256
+					},
+
+					{
+						"number": "r25",
+						"capacity": 155
+					},
+
+					{
+						"number": "y3",
+						"capacity": 165
+					},
+
+					{
+						"number": "v29",
+						"capacity": 207
+					},
+
+					{
+						"number": "i7",
+						"capacity": 197
+					},
+
+					{
+						"number": "b22",
+						"capacity": 186
+					}
+				]
+			},
+
+			{
+				"number": "72",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "f6",
+						"capacity": 219
+					},
+
+					{
+						"number": "n22",
+						"capacity": 78
+					},
+
+					{
+						"number": "t2",
+						"capacity": 131
+					},
+
+					{
+						"number": "h13",
+						"capacity": 102
+					},
+
+					{
+						"number": "z23",
+						"capacity": 111
+					},
+
+					{
+						"number": "r18",
+						"capacity": 195
+					},
+
+					{
+						"number": "d6",
+						"capacity": 94
+					},
+
+					{
+						"number": "s29",
+						"capacity": 126
+					},
+
+					{
+						"number": "p23",
+						"capacity": 260
+					},
+
+					{
+						"number": "w9",
+						"capacity": 154
+					},
+
+					{
+						"number": "y10",
+						"capacity": 93
+					},
+
+					{
+						"number": "u5",
+						"capacity": 254
+					},
+
+					{
+						"number": "m13",
+						"capacity": 54
+					},
+
+					{
+						"number": "b13",
+						"capacity": 185
+					},
+
+					{
+						"number": "b14",
+						"capacity": 35
+					},
+
+					{
+						"number": "y17",
+						"capacity": 269
+					},
+
+					{
+						"number": "h2",
+						"capacity": 68
+					},
+
+					{
+						"number": "s1",
+						"capacity": 161
+					},
+
+					{
+						"number": "h28",
+						"capacity": 31
+					},
+
+					{
+						"number": "g29",
+						"capacity": 226
+					},
+
+					{
+						"number": "m2",
+						"capacity": 193
+					},
+
+					{
+						"number": "y2",
+						"capacity": 280
+					},
+
+					{
+						"number": "i19",
+						"capacity": 273
+					},
+
+					{
+						"number": "i17",
+						"capacity": 95
+					},
+
+					{
+						"number": "s19",
+						"capacity": 135
+					},
+
+					{
+						"number": "l23",
+						"capacity": 161
+					},
+
+					{
+						"number": "x27",
+						"capacity": 36
+					},
+
+					{
+						"number": "c10",
+						"capacity": 261
+					},
+
+					{
+						"number": "y25",
+						"capacity": 177
+					},
+
+					{
+						"number": "j16",
+						"capacity": 74
+					}
+				]
+			},
+
+			{
+				"number": "73",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "l9",
+						"capacity": 208
+					},
+
+					{
+						"number": "u20",
+						"capacity": 156
+					},
+
+					{
+						"number": "l4",
+						"capacity": 181
+					},
+
+					{
+						"number": "z20",
+						"capacity": 119
+					},
+
+					{
+						"number": "d8",
+						"capacity": 55
+					},
+
+					{
+						"number": "l3",
+						"capacity": 213
+					},
+
+					{
+						"number": "g18",
+						"capacity": 142
+					},
+
+					{
+						"number": "x5",
+						"capacity": 276
+					},
+
+					{
+						"number": "x2",
+						"capacity": 34
+					},
+
+					{
+						"number": "u27",
+						"capacity": 78
+					},
+
+					{
+						"number": "d22",
+						"capacity": 140
+					},
+
+					{
+						"number": "p24",
+						"capacity": 58
+					},
+
+					{
+						"number": "a1",
+						"capacity": 71
+					},
+
+					{
+						"number": "h5",
+						"capacity": 73
+					},
+
+					{
+						"number": "h1",
+						"capacity": 251
+					},
+
+					{
+						"number": "b16",
+						"capacity": 50
+					},
+
+					{
+						"number": "c25",
+						"capacity": 43
+					},
+
+					{
+						"number": "b13",
+						"capacity": 140
+					},
+
+					{
+						"number": "s4",
+						"capacity": 233
+					},
+
+					{
+						"number": "q8",
+						"capacity": 147
+					},
+
+					{
+						"number": "f22",
+						"capacity": 64
+					},
+
+					{
+						"number": "f24",
+						"capacity": 170
+					},
+
+					{
+						"number": "o19",
+						"capacity": 95
+					},
+
+					{
+						"number": "q17",
+						"capacity": 263
+					},
+
+					{
+						"number": "v25",
+						"capacity": 58
+					},
+
+					{
+						"number": "b20",
+						"capacity": 169
+					},
+
+					{
+						"number": "x27",
+						"capacity": 190
+					},
+
+					{
+						"number": "b23",
+						"capacity": 257
+					},
+
+					{
+						"number": "r3",
+						"capacity": 107
+					}
+				]
+			},
+
+			{
+				"number": "76",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "f6",
+						"capacity": 128
+					},
+
+					{
+						"number": "h16",
+						"capacity": 73
+					},
+
+					{
+						"number": "j9",
+						"capacity": 286
+					},
+
+					{
+						"number": "e15",
+						"capacity": 50
+					},
+
+					{
+						"number": "j7",
+						"capacity": 174
+					},
+
+					{
+						"number": "z8",
+						"capacity": 151
+					},
+
+					{
+						"number": "c29",
+						"capacity": 271
+					},
+
+					{
+						"number": "d2",
+						"capacity": 64
+					},
+
+					{
+						"number": "d20",
+						"capacity": 276
+					},
+
+					{
+						"number": "j20",
+						"capacity": 43
+					},
+
+					{
+						"number": "j21",
+						"capacity": 207
+					},
+
+					{
+						"number": "s21",
+						"capacity": 224
+					},
+
+					{
+						"number": "y15",
+						"capacity": 274
+					},
+
+					{
+						"number": "d28",
+						"capacity": 280
+					},
+
+					{
+						"number": "d27",
+						"capacity": 42
+					},
+
+					{
+						"number": "z10",
+						"capacity": 109
+					},
+
+					{
+						"number": "w29",
+						"capacity": 237
+					},
+
+					{
+						"number": "i9",
+						"capacity": 125
+					},
+
+					{
+						"number": "r25",
+						"capacity": 174
+					},
+
+					{
+						"number": "y2",
+						"capacity": 260
+					},
+
+					{
+						"number": "w6",
+						"capacity": 226
+					},
+
+					{
+						"number": "u16",
+						"capacity": 68
+					},
+
+					{
+						"number": "c16",
+						"capacity": 102
+					},
+
+					{
+						"number": "e4",
+						"capacity": 224
+					},
+
+					{
+						"number": "y20",
+						"capacity": 196
+					},
+
+					{
+						"number": "q14",
+						"capacity": 270
+					},
+
+					{
+						"number": "s13",
+						"capacity": 299
+					},
+
+					{
+						"number": "j10",
+						"capacity": 55
+					}
+				]
+			},
+
+			{
+				"number": "50",
+				"type": "FREEZING",
+				"shelfs": 
+				[
+					{
+						"number": "m26",
+						"capacity": 133
+					},
+
+					{
+						"number": "k10",
+						"capacity": 274
+					},
+
+					{
+						"number": "n11",
+						"capacity": 281
+					},
+
+					{
+						"number": "j9",
+						"capacity": 71
+					},
+
+					{
+						"number": "h26",
+						"capacity": 209
+					},
+
+					{
+						"number": "r24",
+						"capacity": 39
+					},
+
+					{
+						"number": "m2",
+						"capacity": 197
+					},
+
+					{
+						"number": "t17",
+						"capacity": 202
+					},
+
+					{
+						"number": "r26",
+						"capacity": 218
+					},
+
+					{
+						"number": "h20",
+						"capacity": 169
+					},
+
+					{
+						"number": "f19",
+						"capacity": 289
+					},
+
+					{
+						"number": "b28",
+						"capacity": 291
+					},
+
+					{
+						"number": "d22",
+						"capacity": 197
+					},
+
+					{
+						"number": "w7",
+						"capacity": 156
+					},
+
+					{
+						"number": "a2",
+						"capacity": 89
+					},
+
+					{
+						"number": "c20",
+						"capacity": 218
+					},
+
+					{
+						"number": "a3",
+						"capacity": 48
+					},
+
+					{
+						"number": "j13",
+						"capacity": 166
+					},
+
+					{
+						"number": "l10",
+						"capacity": 42
+					},
+
+					{
+						"number": "b25",
+						"capacity": 218
+					},
+
+					{
+						"number": "z18",
+						"capacity": 98
+					}
+				]
+			},
+
+			{
+				"number": "89",
+				"type": "COOLING",
+				"shelfs": 
+				[
+					{
+						"number": "n5",
+						"capacity": 158
+					},
+
+					{
+						"number": "v5",
+						"capacity": 119
+					},
+
+					{
+						"number": "o24",
+						"capacity": 159
+					},
+
+					{
+						"number": "b4",
+						"capacity": 221
+					},
+
+					{
+						"number": "o28",
+						"capacity": 80
+					},
+
+					{
+						"number": "u28",
+						"capacity": 36
+					},
+
+					{
+						"number": "z7",
+						"capacity": 172
+					},
+
+					{
+						"number": "q22",
+						"capacity": 207
+					},
+
+					{
+						"number": "q24",
+						"capacity": 299
+					},
+
+					{
+						"number": "v15",
+						"capacity": 182
+					},
+
+					{
+						"number": "s29",
+						"capacity": 136
+					},
+
+					{
+						"number": "d20",
+						"capacity": 44
+					},
+
+					{
+						"number": "o22",
+						"capacity": 219
+					},
+
+					{
+						"number": "i22",
+						"capacity": 30
+					},
+
+					{
+						"number": "k16",
+						"capacity": 42
+					},
+
+					{
+						"number": "k4",
+						"capacity": 137
+					},
+
+					{
+						"number": "k5",
+						"capacity": 76
+					},
+
+					{
+						"number": "m5",
+						"capacity": 181
+					},
+
+					{
+						"number": "m6",
+						"capacity": 100
+					},
+
+					{
+						"number": "t12",
+						"capacity": 278
+					},
+
+					{
+						"number": "w29",
+						"capacity": 140
+					},
+
+					{
+						"number": "x19",
+						"capacity": 189
+					},
+
+					{
+						"number": "w20",
+						"capacity": 259
+					},
+
+					{
+						"number": "c8",
+						"capacity": 237
+					},
+
+					{
+						"number": "r23",
+						"capacity": 57
+					},
+
+					{
+						"number": "c18",
+						"capacity": 208
+					},
+
+					{
+						"number": "s16",
+						"capacity": 297
+					},
+
+					{
+						"number": "v6",
+						"capacity": 234
+					},
+
+					{
+						"number": "i12",
+						"capacity": 280
+					},
+
+					{
+						"number": "c15",
+						"capacity": 266
+					}
+				]
+			}
+		]
+	}
+}

@@ -1,5 +1,10 @@
 package cz.cvut.junit.util;
 
+import com.fasterxml.jackson.core.JsonParseException;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import cz.cvut.junit.web.wrapper.init.WarehouseInit;
+
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -38,5 +43,15 @@ public class Util {
             }
         }
         return null;
+    }
+
+    public static Object createObjectFromJson(String json, Class<? extends Object> desiredClass) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.readValue(json, desiredClass);
+    }
+
+    public static String createJsonFromObject(Object o) throws JsonProcessingException {
+        ObjectMapper mapper = new ObjectMapper();
+        return mapper.writeValueAsString(o);
     }
 }
