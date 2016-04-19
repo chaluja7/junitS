@@ -22,6 +22,8 @@ public interface ItemService {
 
     List getItemsPlaces(List<Item> items);
 
+    List getItemsByType(String meatType, String coolingType);
+
     void persist(Item item);
 
     void merge(Item item);

@@ -21,8 +21,10 @@ public class WarehouseManageServiceImplTest extends AbstractServiceTest {
 //        assertJsonEquals("[{\"test\":1}, {\"test\":2}]",
 //                "[{\n\"test\": 2\n}, {\"test\": 1}]",when(Option.IGNORING_ARRAY_ORDER));
 
-
-        warehouseManageService.getLocationOfItemInWarehouse("{ \"type\" : \"CHUCKER\", \"cooling-type\" : \"FREEZING\" }");
+        String s = Util.readFile(new File(getClass().getClassLoader().getResource("testJson/store1.json").getFile()));
+        warehouseManageService.putItemInStock(s);
+        s = warehouseManageService.getLocationOfItemInWarehouse("{ \"type\" : \"PORK\", \"cooling-type\" : \"FREEZING\" }");
+        System.out.println(s);
 
 
     }

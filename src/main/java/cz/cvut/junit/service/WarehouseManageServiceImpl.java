@@ -11,6 +11,7 @@ import cz.cvut.junit.web.wrapper.input.ItemPlacesRequest;
 import cz.cvut.junit.web.wrapper.input.StoreItemRequest;
 import cz.cvut.junit.web.wrapper.input.UnstoreItemRequest;
 import cz.cvut.junit.web.wrapper.output.ItemPlace;
+import cz.cvut.junit.web.wrapper.output.ItemPlaceWithExpiration;
 import cz.cvut.junit.web.wrapper.output.ItemPlacesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,9 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.math.BigInteger;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -46,11 +49,20 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
             ItemPlacesRequest itemPlaceRequest = (ItemPlacesRequest) Util.createObjectFromJson(inputJson, ItemPlacesRequest.class);
             itemPlaceRequest.getCoolingType();
             itemPlaceRequest.getType();
+            List<Object[]> list = itemService.getItemsByType(null,null);
+            List<ItemPlaceWithExpiration> itemPlaceWithExpirationList = new ArrayList<>();
+            for(Object[] o:list){
+                ItemPlaceWithExpiration itemPlaceWithExpiration = new ItemPlaceWithExpiration();
+                itemPlaceWithExpiration.setCount((int)o[0]);
+                itemPlaceWithExpiration.setShelfNumber((String)o[1]);
+                itemPlaceWithExpiration.setBoxNumber(((BigInteger)o[2]).longValue());
+                itemPlaceWithExpiration.setDateOfExpiration(((Date)o[3]).toString());
+                itemPlaceWithExpirationList.add(itemPlaceWithExpiration);
+            }
+            ItemPlacesResponse<ItemPlaceWithExpiration> response = new ItemPlacesResponse<>();
+            response.setItemPlace(itemPlaceWithExpirationList);
 
-
-
-
-
+            return Util.createJsonFromObject(response);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -98,10 +110,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
         try {
             StoreItemRequest storeItemRequest = (StoreItemRequest) Util.createObjectFromJson(inputJson, StoreItemRequest.class);
 
-            Item item = new Item();
-            item.setType(storeItemRequest.getType());
-            item.setKillDate(Util.getDateFromCsFormat(storeItemRequest.getDateOfSlaughter()));
-            item.setFrozen(storeItemRequest.isFrozen());
+            Item item = itemService.createItemObject(storeItemRequest.getType(), storeItemRequest.isFrozen(),Util.getDateFromCsFormat(storeItemRequest.getDateOfSlaughter()));
 
             itemService.persist(item);
 
