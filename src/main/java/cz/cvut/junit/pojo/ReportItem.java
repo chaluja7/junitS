@@ -57,6 +57,6 @@ public class ReportItem {
 
     @Override
     public String toString() {
-        return  getType() + COMMA + count + COMMA + isFrozen + COMMA + expiresInDays;
+        return  getType() + COMMA + count + COMMA + expiresInDays + COMMA +  isFrozen;
     }
 }
