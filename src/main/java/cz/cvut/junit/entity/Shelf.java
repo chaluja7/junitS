@@ -1,6 +1,8 @@
 package cz.cvut.junit.entity;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Maso
@@ -22,6 +24,9 @@ public class Shelf extends AbstractEntity {
     @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "boxId")
     private Box box;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "item")
+    private Set<ItemShelfConnection> itemShelfConnections;
 
     public String getShelfNumber() {
         return shelfNumber;
@@ -45,5 +50,25 @@ public class Shelf extends AbstractEntity {
 
     public void setBox(Box box) {
         this.box = box;
+    }
+
+    public Set<ItemShelfConnection> getItemShelfConnections() {
+        if(itemShelfConnections == null) {
+            itemShelfConnections = new HashSet<>();
+        }
+
+        return itemShelfConnections;
+    }
+
+    public void addItemShelfConnection(ItemShelfConnection itemShelfConnection) {
+        if(!getItemShelfConnections().contains(itemShelfConnection)) {
+            itemShelfConnections.add(itemShelfConnection);
+        }
+
+        itemShelfConnection.setShelf(this);
+    }
+
+    public void setItemShelfConnections(Set<ItemShelfConnection> itemShelfConnections) {
+        this.itemShelfConnections = itemShelfConnections;
     }
 }

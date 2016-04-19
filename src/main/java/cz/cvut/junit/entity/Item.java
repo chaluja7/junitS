@@ -1,9 +1,9 @@
 package cz.cvut.junit.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * Maso
@@ -24,6 +24,9 @@ public class Item extends AbstractEntity {
 
     @Column(nullable = false)
     private Boolean isFrozen;
+
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "item")
+    private Set<ItemShelfConnection> itemShelfConnections;
 
     public String getType() {
         return type;
@@ -47,5 +50,25 @@ public class Item extends AbstractEntity {
 
     public void setFrozen(Boolean frozen) {
         isFrozen = frozen;
+    }
+
+    public Set<ItemShelfConnection> getItemShelfConnections() {
+        if(itemShelfConnections == null) {
+            itemShelfConnections = new HashSet<>();
+        }
+
+        return itemShelfConnections;
+    }
+
+    public void addItemShelfConnection(ItemShelfConnection itemShelfConnection) {
+        if(!getItemShelfConnections().contains(itemShelfConnection)) {
+            itemShelfConnections.add(itemShelfConnection);
+        }
+
+        itemShelfConnection.setItem(this);
+    }
+
+    public void setItemShelfConnections(Set<ItemShelfConnection> itemShelfConnections) {
+        this.itemShelfConnections = itemShelfConnections;
     }
 }
