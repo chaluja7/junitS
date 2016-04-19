@@ -20,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 /**
  * Created by frox on 19.4.16.
  */
-public class WarehouseConfigurationImplTest extends AbstractServiceTest{
+public class WarehouseConfigurationServiceImplTest extends AbstractServiceTest{
 
     @Autowired
     protected WarehouseConfigurationService warehouseConfigurationService;

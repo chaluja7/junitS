@@ -19,7 +19,7 @@ import java.util.List;
  * Created by dacos on 19.4.16.
  */
 @Service
-public class WarehouseConfigurationImpl implements WarehouseConfigurationService {
+public class WarehouseConfigurationServiceImpl implements WarehouseConfigurationService {
 
     @Autowired
     protected ConfigService configService;
