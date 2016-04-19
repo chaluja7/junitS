@@ -9,6 +9,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "itemShelfs")
+@NamedQueries({
+    @NamedQuery(name = "ItemShelfConnection.findByShelfNumber", query = "FROM ItemShelfConnection isc WHERE isc.shelf.shelfNumber = :shelfNumber"),
+    @NamedQuery(name = "ItemShelfConnection.findByItemType", query = "FROM ItemShelfConnection isc WHERE isc.item.type = :type")
+})
 public class ItemShelfConnection extends AbstractEntity {
 
     private static final long serialVersionUID = -2259763967741085136L;
