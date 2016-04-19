@@ -32,7 +32,7 @@ public class ReportItem {
     }
 
     public String getType() {
-        return type;
+        return type.toUpperCase();
     }
 
     public void setType(String type) {
@@ -57,6 +57,6 @@ public class ReportItem {
 
     @Override
     public String toString() {
-        return  type + COMMA + count + COMMA + isFrozen + COMMA + expiresInDays;
+        return  getType() + COMMA + count + COMMA + isFrozen + COMMA + expiresInDays;
     }
 }

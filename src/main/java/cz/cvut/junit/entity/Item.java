@@ -45,7 +45,7 @@ public class Item extends AbstractEntity {
     }
 
     public String getType() {
-        return type;
+        return type.toUpperCase();
     }
 
     public void setType(String type) {
