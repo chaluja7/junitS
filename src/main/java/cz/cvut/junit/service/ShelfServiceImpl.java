@@ -1,6 +1,7 @@
 package cz.cvut.junit.service;
 
 import cz.cvut.junit.dao.HibernateShelfDao;
+import cz.cvut.junit.entity.CoolingType;
 import cz.cvut.junit.entity.Shelf;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -57,8 +58,8 @@ public class ShelfServiceImpl implements ShelfService {
 
     @Override
     @Transactional(propagation = Propagation.SUPPORTS, readOnly = true)
-    public List<Shelf> findEmptyShelfs(int minimumCapacity) {
-        List<Shelf> allShelfs = hibernateShelfDao.findAllShelfsWithShelfItemConnection();
+    public List<Shelf> findEmptyShelfs(int minimumCapacity, CoolingType coolingType) {
+        List<Shelf> allShelfs = hibernateShelfDao.findAllShelfsWithShelfItemConnection(coolingType);
 
         Map<Integer, List<Shelf>> capacityMap = new TreeMap<>();
         for(Shelf shelf : allShelfs) {

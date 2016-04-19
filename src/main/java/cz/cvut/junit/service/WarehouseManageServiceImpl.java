@@ -1,5 +1,6 @@
 package cz.cvut.junit.service;
 
+import cz.cvut.junit.entity.CoolingType;
 import cz.cvut.junit.entity.Item;
 import cz.cvut.junit.entity.ItemShelfConnection;
 import cz.cvut.junit.entity.Shelf;
@@ -7,6 +8,7 @@ import cz.cvut.junit.pojo.ReportItem;
 import cz.cvut.junit.util.Util;
 import cz.cvut.junit.web.wrapper.input.ItemPlacesRequest;
 import cz.cvut.junit.web.wrapper.input.StoreItemRequest;
+import cz.cvut.junit.web.wrapper.input.UnstoreItemRequest;
 import cz.cvut.junit.web.wrapper.output.ItemPlace;
 import cz.cvut.junit.web.wrapper.output.ItemPlacesResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +60,17 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
     @Override
     @Transactional
     public String getPickingItemFromWarehouseByMeatType(String inputJson) {
+        try {
+            UnstoreItemRequest unstoreItemRequest = (UnstoreItemRequest) Util.createObjectFromJson(inputJson, UnstoreItemRequest.class);
+
+
+        } catch (IOException e) {
+
+
+            e.printStackTrace();
+            return null;
+        }
+
         return null;
     }
 
@@ -90,9 +103,9 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
 
             itemService.persist(item);
 
-            //TODO pridat umisteni do polic
             //vybrat volne police
-            List<Shelf> emptyShelfs = shelfService.findEmptyShelfs(storeItemRequest.getCount());
+            CoolingType coolingType = storeItemRequest.isFrozen() ? CoolingType.FREEZING : CoolingType.FREEZING;
+            List<Shelf> emptyShelfs = shelfService.findEmptyShelfs(storeItemRequest.getCount(), coolingType);
             if(emptyShelfs == null || emptyShelfs.isEmpty()) {
                 throw new RuntimeException("not enough space on shelfs!");
             }
@@ -123,7 +136,7 @@ public class WarehouseManageServiceImpl implements WarehouseManageService {
                     itemShelfConnection.setItem(item);
                     itemShelfConnection.setShelf(emptyShelf);
 
-                    ItemPlace itemPlace = getItemPlaceFromShelf(emptyShelfs.get(0), Math.max(emptyShelf.getCapacity(), storeItemRequest.getCount() - alreadyStored));
+                    ItemPlace itemPlace = getItemPlaceFromShelf(emptyShelfs.get(0), Math.min(emptyShelf.getCapacity(), storeItemRequest.getCount() - alreadyStored));
                     itemPlaceList.add(itemPlace);
                     alreadyStored += emptyShelf.getFreeCapacity();
 

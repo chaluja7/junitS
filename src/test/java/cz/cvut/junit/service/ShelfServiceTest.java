@@ -42,7 +42,7 @@ public class ShelfServiceTest extends AbstractServiceTest {
 
     @Test
     public void testFindEmptyShelfs() {
-        List<Shelf> emptyShelfs = shelfService.findEmptyShelfs(50);
+        List<Shelf> emptyShelfs = shelfService.findEmptyShelfs(50, CoolingType.FREEZING);
         Assert.assertNotNull(emptyShelfs);
     }
 
